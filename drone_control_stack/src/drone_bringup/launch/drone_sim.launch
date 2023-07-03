@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<launch>
+
+  <!-- Arguments received when starting the environment -->
+  <arg name="name" default="iris"/>
+  <arg name="mission" default="simulation"/>
+  <arg name="ID" default="0"/>
+
+  <!-- Define the namespace for this drone being launched -->
+  <arg name="namespace" value="$(arg name)$(arg ID)"/>
+
+  <!-- Load global vehicle parameters -->
+  <rosparam command="load" file="$(find drone_bringup)/config/$(arg mission)/$(arg name)/config.yaml"/>
+  <param name="ID" type="int" value="$(arg ID)"/>
+  <param name="namespace" type="string" value="$(arg namespace)"/>
+
+  <!-- <node pkg="test_comms_pixhawk" type="test_comms_pixhawk_node" name="test_comms_pixhawk" respawn="false" output="screen"/> -->
+
+</launch>

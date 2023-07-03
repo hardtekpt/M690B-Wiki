@@ -1,0 +1,36 @@
+---
+hide:
+  - footer
+  - navigation
+  - toc
+---
+
+# Roadmap
+
+- [x] Verify drone instrumentation: 
+    * [x] Install OS - Jetpack 5
+    * [x] Install ROS and setup workspace
+    * [x] Setup the VRPN ROS package
+    * [x] Setup the MAVROS package
+    * [x] Verify communication between MAVROS and the Pixhawk
+    * [x] Install the ROS control stack
+    * [x] Verify communication between the ROS nodes and the Pixhawk
+    * [x] Setup and test QGroundControl
+    * [x] Test QGC with the telemetry radio
+    * [x] Calibrate the flight controller
+- [ ] Verify drone sanity flight (manual mode, at ISR-Tagus and/or Cybaer-lab): 
+    * [x] Gazebo simulation with the mission algorithm running on the onboard computer
+    * [ ] Indoor power on (no blades)
+    * [ ] Indoor power on with blades, safety cable and safety net (see if Pixhawk controller gains need to be changed)
+- [ ] Range test
+- [ ] Manual flight with data acquisition and ground monitoring
+- [ ] Dummy weight lifting tests (see if Pixhawk controller gains need to be changed) (no onboard computer installed) - create thrust curve.
+- [ ] PixHawk autonomous mission mode trials:
+    * [ ] Takeoff, hover, land (see if controller gains need to be changed)
+    * [ ] Typical mission for the controllers to be tested
+    * [ ] Off-board controller(s) running but not controlling vehicle (collected data used afterwards to see response of off-board controllers)
+- [ ] First off-board waypoint simple controller, no MPC, Guassian and/or GM;
+- [ ] Online off-board MPC mission for PirePuma algorithms;
+- [ ] Repeat previous trials with improved missions or algorithms.
+
+

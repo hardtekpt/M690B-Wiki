@@ -1,0 +1,7 @@
+drone_params:
+  mass: 1.52
+  radius: 0.275
+  height: 0.100
+  num_motors: 4
+  thrust_curve: "iris"
+  g: 9.8066

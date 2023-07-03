@@ -1,0 +1,96 @@
+site_name: M690B Wiki
+site_url: https://hardtekpt.github.io/M690B-Wiki/
+repo_url: https://github.com/hardtekpt/M690B-Wiki
+repo_name: M690B-Wiki
+#edit_uri: edit/main/docs/
+site_author: Francisco Santos
+theme: 
+  name: material
+  palette:
+  - media: '(prefers-color-scheme: light)'
+    scheme: default
+    primary: black
+    toggle:
+      icon: material/weather-night
+      name: Switch to dark mode
+  - media: '(prefers-color-scheme: dark)'
+    scheme: slate
+    primary: black
+    toggle:
+      icon: material/weather-sunny
+      name: Switch to light mode
+  
+  icon:
+    logo: material/quadcopter
+    repo: fontawesome/brands/git-alt
+  #favicon: images/favicon.png
+  # Extra features
+  features:
+  - navigation.instant
+  - navigation.tracking
+  - navigation.sections
+  - toc.follow
+  - navigation.top
+    # ---------------------
+    # Search
+    # ---------------------
+    # Search suggestions in search button
+  - search.suggest
+  - search.highlight
+    # Allow sharing a search result
+  - search.share
+  - navigation.footer
+  - toc.integrate
+  - navigation.indexes
+  - navigation.tabs
+markdown_extensions:
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - admonition
+  - pymdownx.details
+  - attr_list
+  - md_in_html
+  - def_list
+  - tables
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  
+
+plugins:
+  - monorepo
+  - search:
+      separator: '[\s\-,:!=\[\]()"/]+|(?!\b)(?=[A-Z][a-z])|\.(?!\d)|&[lg]t;'
+      lang:
+      - en
+      - pt
+extra:
+  # ---------------------
+  # Remove the 'made with mkdocs'
+  # ---------------------
+  generator: false
+extra_css:
+  - stylesheets/extra.css
+  
+nav:
+  - Introduction: 'index.md'
+  - Vehicle Setup:
+    - 'Vehicle Setup/index.md'
+    - Hardware Setup: 
+      - 'Hardware Setup/index.md'
+      - Onboard Computer: 'Hardware Setup/onboard_computer.md'
+      - Flight Computer: 'Hardware Setup/flight_computer.md'
+      - Radio and Receiver: 'Hardware Setup/radio_and_receiver.md'
+    - Software Setup:
+      - 'Software Setup/index.md'
+      - OS and ROS installation: 'Software Setup/os_installation.md'
+      - VRPN and MAVROS setup: 'Software Setup/vrpn_and_mavros.md'
+      - PX4 Configuration Checklist: 'Software Setup/px4_configuration_checklist.md'
+      - Drone Control Stack Setup: 'Software Setup/drone_control_stack.md'
+      - Usefull Packages: 'Software Setup/usefull_packages.md'
+  - Known Issues: 'known_issues.md'
+  - Roadmap: 'roadmap.md'

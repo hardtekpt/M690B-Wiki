@@ -1,0 +1,7 @@
+drone_params:
+  mass: 2.67
+  radius: 0.275
+  height: 0.100
+  num_motors: 6
+  thrust_curve: "typhoon_h480"
+  g: 9.8066

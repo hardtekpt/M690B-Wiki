@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<launch>
+  
+    <arg name="gui" default="false"/>
+
+    <!-- Launch the drone vehicle -->
+    <include file="$(find drone_launch)/launch/simulator_bringup.launch">
+
+        <arg name="gui" default="false"/>
+        
+    </include>
+
+    <node name="rviz" pkg="rviz" type="rviz"  required="true" args="-d $(find drone_launch)/launch/rvizcfg.rviz" />
+
+</launch>
