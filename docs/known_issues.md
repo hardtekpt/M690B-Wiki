@@ -1,3 +1,7 @@
+---
+hide:
+  - footer
+---
 # Known issues
 
 ## OS not booting into GUI
