@@ -36,6 +36,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://hardtekpt.github.io/M690B-Wiki/Mission%20Logs/</loc>
+         <lastmod>2023-07-07</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://hardtekpt.github.io/M690B-Wiki/Software%20Setup/</loc>
          <lastmod>2023-07-07</lastmod>
          <changefreq>daily</changefreq>
