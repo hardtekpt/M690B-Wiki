@@ -75,6 +75,8 @@ extra:
   generator: false
 extra_css:
   - stylesheets/extra.css
+extra_javascript:
+  - stylesheets/js.js
   
 nav:
   - Introduction: 'index.md'
