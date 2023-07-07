@@ -15,27 +15,27 @@ This Wiki contains the documentation for preparing, testing and conducting indoo
 
   <div class="mySlides fade">
     <div class="numbertext">1 / 5</div>
-    <img src="assets/m690b_field_photos/DSC04475.JPG" style="width:100%">
+    <img src="assets/m690b_field_photos/DSC04475.jpg" style="width:100%">
   </div>
 
   <div class="mySlides fade">
     <div class="numbertext">2 / 5</div>
-    <img src="assets/m690b_field_photos/DSC04486.JPG" style="width:100%">
+    <img src="assets/m690b_field_photos/DSC04486.jpg" style="width:100%">
   </div>
 
   <div class="mySlides fade">
     <div class="numbertext">3 / 5</div>
-    <img src="assets/m690b_field_photos/DSC04490.JPG" style="width:100%">
+    <img src="assets/m690b_field_photos/DSC04490.jpg" style="width:100%">
   </div>
 
   <div class="mySlides fade">
     <div class="numbertext">4 / 5</div>
-    <img src="assets/m690b_field_photos/DSC04491.JPG" style="width:100%">
+    <img src="assets/m690b_field_photos/DSC04491.jpg" style="width:100%">
   </div>
 
   <div class="mySlides fade">
     <div class="numbertext">5 / 5</div>
-    <img src="assets/m690b_field_photos/DSC04498.JPG" style="width:100%">
+    <img src="assets/m690b_field_photos/DSC04498.jpg" style="width:100%">
   </div>
 
 
@@ -43,4 +43,3 @@ This Wiki contains the documentation for preparing, testing and conducting indoo
   <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
   <a class="next" onclick="plusSlides(1)">&#10095;</a>
 </div>
-<br>
