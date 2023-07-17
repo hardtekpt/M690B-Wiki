@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<package format="2">
+ <name>m690b_waypoint_test</name>
+ <version>1.0.0</version>
+ <description>Implements s simple waypoint visinting program</description>
+
+ <license>GPLv3</license>
+
+ <author email="francisco.velez@tecnico.ulisboa.pt">Francisco Velez</author>
+ <maintainer email="francisco.velez@tecnico.ulisboa.pt">Francisco Velez</maintainer>
+
+ <buildtool_depend>catkin</buildtool_depend>
+ 
+ <depend>roscpp</depend>
+ <depend>mavros_cpp</depend>
+ <depend>drone_gimmicks_library</depend>
+ <depend>drone_utils_cpp</depend>
+</package>
