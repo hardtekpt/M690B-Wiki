@@ -138,7 +138,7 @@ void DroneLib::OFFBOARD::set_vel_yaw(double vel[3][1], double yaw, double freq){
 	msg.velocity.x = vel_enu[0][0]; msg.velocity.y = vel_enu[1][0]; msg.velocity.z = vel_enu[2][0]; 
 	msg.yaw = -yaw;
 	set_vel_pub.publish(msg);
-	r.sleep();
+	//r.sleep();
 }
 
 /* Send velocity in body frame and yaw_rate to the PX4 autopilot */
@@ -324,6 +324,7 @@ void DroneLib::OFFBOARD::auto_land(){
 				while(true){
 					if (status.is_landed==true)
 						break;
+        			ros::spinOnce();
 				}
 			}
 			else
