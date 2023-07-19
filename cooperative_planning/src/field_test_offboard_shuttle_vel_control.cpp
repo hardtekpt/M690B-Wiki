@@ -26,7 +26,7 @@ geometry_msgs::Point desiredPosition;
 geometry_msgs::Point desiredVelocityLinear;
 double desiredHeading;
 
-double kp_velocity = 1, ki_velocity = 0, kd_velocity = 0, kp_heading = 1;
+double kp_velocity = 1, ki_velocity = 0, kd_velocity = 0, kp_heading = 0;
 
 double proximity_radius = 0.3;
 int targetReached = 0;
@@ -66,6 +66,22 @@ void calculateDesiredVelocityLinear(){
     desiredVelocityLinear.x = kp_velocity*e_pX + ki_velocity*position_error[0][0] + kd_velocity*e_dX;
     desiredVelocityLinear.y = kp_velocity*e_pY + ki_velocity*position_error[1][0] + kd_velocity*e_dY;
     desiredVelocityLinear.z = kp_velocity*e_pZ + ki_velocity*position_error[2][0] + kd_velocity*e_dZ;
+
+       /*if( desiredVelocityLinear.x  > 1 )
+        desiredVelocityLinear.x = 1;
+    else {if( desiredVelocityLinear.x  < -1 )
+            desiredVelocityLinear.x = -1;}
+
+
+    if( desiredVelocityLinear.y  > 1 )
+        desiredVelocityLinear.y = 1;
+    else {if( desiredVelocityLinear.y  < -1 )
+            desiredVelocityLinear.y = -1;}
+
+    if( desiredVelocityLinear.y  > 1 )
+        desiredVelocityLinear.y = 1;
+    else {if( desiredVelocityLinear.y  < -1 )
+            desiredVelocityLinear.y = -1;}*/
     calculateDesiredHeading();
 }
 
@@ -159,7 +175,7 @@ int main (int argc, char ** argv){
     
     shuttle->start_offboard_mission();
 
-    shuttle->set_pos_yaw(pos, yaw, 10);
+    shuttle->set_pos_yaw(pos, yaw, 5);
 
     
     Tprev = ros::Time::now().toSec();
