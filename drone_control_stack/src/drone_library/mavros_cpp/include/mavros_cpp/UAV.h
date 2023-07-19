@@ -91,7 +91,7 @@ namespace DroneLib {
       /**
        * @brief Set the publishers for seting references for the controller
        */
-      ros::Publisher set_pos_pub, set_vel_pub, set_att_pub, set_ang_vel_pub, set_act_pub;
+      ros::Publisher set_pos_pub, set_vel_pub, set_att_pub, set_ang_vel_pub, set_act_pub, my_set_pos_pub;
 
       /**
        * @brief Arms the drone, if it is not already armed.
@@ -102,6 +102,8 @@ namespace DroneLib {
        * @brief Changes the flight mode of the PX4 autopilot of the drone to offboard.
        */
       void start_offboard_mode();
+
+      void my_set_pos(double pos[3][1], double freq);
 
       /**
        * @brief Makes the vehicle ready for an offboard experiment by arming it and by changing the flight mode of its PX4 autopilot to offboard.

@@ -42,6 +42,7 @@ void DroneLib::OFFBOARD::start_offboard_mode(){
 	set_att_pub = nh.advertise<mavros_msgs::AttitudeTarget>("/"+info.drone_ns+"/mavros/setpoint_raw/attitude", 1);
 	set_ang_vel_pub = nh.advertise<mavros_msgs::AttitudeTarget>("/"+info.drone_ns+"/mavros/setpoint_raw/attitude", 1);
 	set_act_pub = nh.advertise<mavros_msgs::ActuatorControl>("/"+info.drone_ns+"/mavros/actuator_control", 1);
+	my_set_pos_pub = nh.advertise<mavros_msgs::PositionTarget>("/"+info.drone_ns+"/mavros/setpoint_raw/local", 1);
 
 	if (status.flight_mode.compare("OFFBOARD") != 0){
 		set_offboard_client = nh.serviceClient<mavros_msgs::SetMode>("/"+info.drone_ns+"/mavros/set_mode");
@@ -69,6 +70,23 @@ void DroneLib::OFFBOARD::start_offboard_mission(){
 	*****/
 	start_offboard_mode();
 	arm_drone();
+}
+
+void DroneLib::OFFBOARD::my_set_pos(double pos[3][1], double freq) {
+
+	ros::Rate rate(freq);
+	std_msgs::Header header;
+	mavros_msgs::PositionTarget msg;
+
+	header.stamp = ros::Time::now();
+	msg.header = header;
+	msg.coordinate_frame = 1; 
+	msg.type_mask = 4088;
+	msg.position.x = pos[0][0];
+	msg.position.y = pos[1][0];
+	msg.position.z = pos[2][0]; 
+	my_set_pos_pub.publish(msg);
+	rate.sleep();
 }
 
 /* Sends position and yaw references to the PX4 autopilot */
