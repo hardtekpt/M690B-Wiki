@@ -26,35 +26,36 @@
   };
 
 
-  int pos1_x = 4;
+  int pos1_x = -3;
   int pos1_y = 0;
   int pos1_z = -3;
   
-  int pos2_x = 4;
-  int pos2_y = 4;
+  int pos2_x = -3;
+  int pos2_y = 6;
   int pos2_z = -3;
-  
-  int pos3_x = -4;
-  int pos3_y = 4;
+
+  int pos3_x = 3;
+  int pos3_y = 6;
   int pos3_z = -3;
   
-  int pos4_x = -4;
-  int pos4_y = -4;
+  int pos4_x = 3;
+  int pos4_y = 0;
   int pos4_z = -3;
   
-  int pos5_x = 4;
-  int pos5_y = -4;
+  int pos5_x = 0;
+  int pos5_y = 0;
   int pos5_z = -3;
   
-  int pos6_x = 4;
+  /*int pos6_x = 6;
   int pos6_y = 0;
   int pos6_z = -3;
   
   int pos7_x = 0;
   int pos7_y = 0;
-  int pos7_z = -3;
+  int pos7_z = -3;*/
 
-  TargetPosition posArray[7] = { {pos1_x, pos1_y, pos1_z}, {pos2_x, pos2_y, pos2_z} ,{pos3_x, pos3_y, pos3_z} ,{pos4_x, pos4_y, pos4_z}, {pos5_x, pos5_y, pos5_z}, {pos6_x, pos6_y, pos6_z}, {pos7_x, pos7_y, pos7_z} };
+  //TargetPosition posArray[7] = { {pos1_x, pos1_y, pos1_z}, {pos2_x, pos2_y, pos2_z} ,{pos3_x, pos3_y, pos3_z} ,{pos4_x, pos4_y, pos4_z}, {pos5_x, pos5_y, pos5_z}, {pos6_x, pos6_y, pos6_z}, {pos7_x, pos7_y, pos7_z} };
+  TargetPosition posArray[5] = { {pos1_x, pos1_y, pos1_z}, {pos2_x, pos2_y, pos2_z} ,{pos3_x, pos3_y, pos3_z} ,{pos4_x, pos4_y, pos4_z}, {pos5_x, pos5_y, pos5_z} };
 
   int reached = 0;
   int currentPos = 0;
