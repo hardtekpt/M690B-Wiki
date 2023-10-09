@@ -28,7 +28,7 @@ double desiredHeading;
 
 double kp_velocity = 1, ki_velocity = 0, kd_velocity = 0, kp_heading = 0;
 
-double proximity_radius = 0.3;
+double proximity_radius = 0.7;
 int targetReached = 0;
 int reachedFlag = 0;
 
