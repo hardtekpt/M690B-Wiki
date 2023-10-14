@@ -17,6 +17,7 @@ find_package(catkin REQUIRED COMPONENTS
   mavros_cpp
   drone_gimmicks_library
   drone_utils_cpp
+  roslib
 )
 
 
@@ -217,12 +218,93 @@ include_directories(
 
 
 
+find_path(CASADI_INCLUDE_DIR
+  casadi/casadi.hpp
+  HINTS $ENV{CASADI_PREFIX}/include
+)
+
+if(CASADI_INCLUDE_DIR)
+  set(CASADI_INCLUDE_DIR ${CASADI_INCLUDE_DIR} ${CASADI_INCLUDE_DIR}/casadi)
+  set(CASADI_FOUND_INCLUDE TRUE)
+  message(STATUS "Found CasADi include dir: ${CASADI_INCLUDE_DIR}")
+else()
+  message(STATUS "Could not find CasADi include dir")
+endif()
+
+find_library(CASADI_LIBRARY
+    NAMES casadi
+    HINTS ${CASADI_INCLUDE_DIR}/../lib $ENV{CASADI_PREFIX}/lib)
+if(CASADI_LIBRARY)
+    set(CASADI_LIBRARIES ${CASADI_LIBRARIES} ${CASADI_LIBRARY})
+endif()
+
+if(CASADI_LIBRARIES)
+  message(STATUS "Found CasADi libs: ${CASADI_LIBRARIES}")
+else()
+  message(STATUS "Could not find CasADi libs")
+endif()
+
+if(CASADI_FOUND_INCLUDE AND CASADI_LIBRARIES)
+  set(CASADI_FOUND TRUE)
+endif()
+
+
+
+
+
+
+
+
+
+
+
+####
+
+
+
+
+
+
+
+
+
+####
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 add_executable(field_test_offboard_shuttle_vel_control src/field_test_offboard_shuttle_vel_control.cpp)
 target_link_libraries(field_test_offboard_shuttle_vel_control ${catkin_LIBRARIES})
 
 add_executable(field_test_send_shuttle_target_pos src/field_test_send_shuttle_target_pos.cpp)
 target_link_libraries(field_test_send_shuttle_target_pos ${catkin_LIBRARIES})
+
+
+
+
+
+
+
+add_executable(field_test_offboard_shuttle_follower_mpc_virtual_point src/field_test_offboard_shuttle_follower_mpc_virtual_point.cpp)
+target_link_libraries(field_test_offboard_shuttle_follower_mpc_virtual_point ${catkin_LIBRARIES} ${CASADI_LIBRARIES})
+
+
+
 
 
 add_compile_options(-std=c++17 -Wall -O3) 
