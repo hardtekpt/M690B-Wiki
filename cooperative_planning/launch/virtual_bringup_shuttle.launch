@@ -1,0 +1,110 @@
+<?xml version="1.0"?>
+<launch>
+       
+    <!-- Shuttle -->
+   <!-- Vehicle Model -->
+  <arg name="nameShuttle" default="iris"/>
+  <arg name="IDShuttle" default="0" />
+
+  <!-- Vehicle's initial pose in ENU -->
+  <arg name="xShuttle"     default="0.0"/>
+  <arg name="yShuttle"     default="0.0"/>
+  <arg name="zShuttle"     default="0.0"/>
+  <arg name="rollShuttle"  default="0.0"/>
+  <arg name="pitchShuttle" default="0.0"/>
+  <arg name="yawShuttle"   default="0.0"/>
+
+  <!-- PX4 Configurations -->
+  <arg name="px4_configShuttle" default="rcS"/>
+  <arg name="px4_name_configShuttle" default="iris"/>
+
+  <!-- Target -->
+  <!-- Vehicle Model -->
+  <arg name="nameTarget" default="plane"/>
+  <arg name="IDTarget" default="1" />
+
+  <!-- Vehicle's initial pose in ENU -->
+  <arg name="xTarget"     default="0.0"/>
+  <arg name="yTarget"     default="0.0"/>
+  <arg name="zTarget"     default="0.0"/>
+  <arg name="rollTarget"  default="0.0"/>
+  <arg name="pitchTarget" default="0.0"/>
+  <arg name="yawTarget"   default="0.0"/>
+
+  <!-- PX4 Configurations -->
+  <arg name="px4_configTarget" default="rcS"/>
+  <arg name="px4_name_configTarget" default="iris"/>
+
+
+
+
+  <!-- Launch the UAVs with the appropriate namespaces -->
+  <group ns="$(arg nameShuttle)$(arg IDShuttle)">
+
+    <!-- MAVROS and vehicle configs -->
+    <arg name="ip_name" value="$(eval 14540 + arg('IDShuttle'))" />
+    <arg name="ip_port" value="$(eval 14580 + arg('IDShuttle'))" />
+
+    <!-- PX4 SITL and vehicle spawn -->
+    <include file="$(find drone_launch)/launch/single_vehicle_spawn.launch">
+      <!-- Initial vehicle position -->
+      <arg name="x" value="$(arg xShuttle)"/>
+      <arg name="y" value="$(arg yShuttle)"/>
+      <arg name="z" value="$(arg zShuttle)"/>
+      <arg name="roll" value="$(arg rollShuttle)"/>
+      <arg name="pitch" value="$(arg pitchShuttle)"/>
+      <arg name="yaw" value="$(arg yawShuttle)"/>
+      <arg name="vehicle" value="$(arg nameShuttle)"/>
+      <arg name="mavlink_udp_port" value="$(eval 14560 + arg('IDShuttle'))"/>
+      <arg name="mavlink_tcp_port" value="$(eval 4560 + arg('IDShuttle'))"/>
+
+      <!-- Video Parameters -->
+      <arg name="gst_udp_port" value="$(eval 5600 + arg('IDShuttle'))"/>
+      <arg name="video_uri" value="$(eval 5600 + arg('IDShuttle'))"/>
+      <arg name="mavlink_cam_udp_port" value="$(eval 14530 + arg('IDShuttle'))"/>
+
+      <!-- Vehicle ID and configurations -->
+      <arg name="ID" value="$(arg IDShuttle)"/>
+      <arg name="px4_config" value="$(arg px4_configShuttle)"/>
+      <arg name="px4_name_config" value="$(arg px4_name_configShuttle)"/>
+    </include>
+
+    <!-- MAVROS Configurations -->
+    <include file="$(find mavros)/launch/px4.launch">
+      <arg name="fcu_url" value="udp://:$(arg ip_name)@localhost:$(arg ip_port)"/>
+      <!--arg name="gcs_url" value="udp://@localhost:15001"/-->
+      <arg name="gcs_url" value=""/>
+      <arg name="tgt_system" value="$(eval 1 + arg('IDShuttle'))"/>
+      <arg name="tgt_component" value="1"/>
+    </include>
+  </group> 
+
+
+
+
+
+
+  <group ns="$(arg nameTarget)$(arg IDTarget)">
+
+    
+     <!-- MAVROS Configurations -->
+    <include file="$(find mavros)/launch/px4.launch">
+      <arg name="fcu_url" value="udp://:15001@"/>
+      <arg name="gcs_url" value="udp://@localhost:15002"/>
+      <arg name="tgt_system" value="$(eval 1 + 1)"/>
+      <arg name="tgt_component" value="1"/>
+    </include>
+
+
+     
+
+  </group> 
+
+     
+ 
+</launch>
+
+<!-- to add more UAVs (up to 10) - Change the ID
+The FCU will be given by udp://:14540+id@localhost:14580+id
+The mavlink_udp_port will be given by 14560+id 
+The mavlink_tcp_port will be given by 4560+id -->

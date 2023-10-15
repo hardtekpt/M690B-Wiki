@@ -1,0 +1,69 @@
+<?xml version="1.0"?>
+<!-- Bringup file to spawn both the world and the 2 drones -->
+<launch>
+  
+    <!-- Flags to select GUI, frame of reference, vehicle and world-->
+    <arg name="gui" default="true"/>
+    <arg name="world_frame" default="world"/>
+    <arg name="world" default="$(find drone_worlds)/worlds/empty.world"/>
+    <arg name="use_sim_time" default="true"/>
+
+   
+    
+
+    
+    <!-- NOTE: Name defines the model to use, make sure that the corresponding model is available -->
+    <!-- FEITO AINDA COM O TYPHOON PARA TESTES COOPERATIVOS; MAIS TARDE MUDAR PARA O PLANE -->
+
+    <!-- Target's name and identifier -->
+    <arg name="nameTarget" default="plane"/>
+    <arg name="IDTarget" default="1"/>
+    
+    <!-- PX4 Configurations -->
+    <arg name="px4_configTarget" default="rcS"/>
+    <arg name="px4_name_configTarget" default="plane" />
+
+    <!-- Vehicle's initial pose in ENU-->
+    <arg name="xTarget"     default="0.0"/>
+    <arg name="yTarget"     default="5.0"/>
+    <arg name="zTarget"     default="0.0"/>
+
+    <arg name="rollTarget"  default="0.0"/>
+    <arg name="pitchTarget" default="0.0"/>
+    <arg name="yawTarget"   default="-1.3963634"/>
+    
+
+   
+    <!-- Gazebo sim -->
+    <include file="$(find gazebo_ros)/launch/empty_world.launch">
+        <arg name="gui" value="$(arg gui)"/>
+        <arg name="world_name" value="$(arg world)"/>
+        <arg name="debug" value="false"/>
+        <arg name="verbose" value="false"/>
+        <arg name="paused" value="false"/>
+        <arg name="respawn_gazebo" value="false"/>
+    </include>
+
+    <!-- Launch the drone vehicle -->
+    <include file="$(find cooperative_planning)/launch/virtual_bringup_target.launch">
+        
+
+        <!-- Target -->
+         <!-- Vehicle name and Identifier -->
+        <arg name="nameTarget" value="$(arg nameTarget)"/>
+        <arg name="IDTarget" value="$(arg IDTarget)" />
+
+        <!-- Initial pose of the vehicle-->
+        <arg name="xTarget" value="$(arg xTarget)"/>
+        <arg name="yTarget" value="$(arg yTarget)"/>
+        <arg name="zTarget" value="$(arg zTarget)"/>
+        <arg name="rollTarget"  value="$(arg rollTarget)"/>
+        <arg name="pitchTarget" value="$(arg pitchTarget)"/>
+        <arg name="yawTarget"   value="$(arg yawTarget)"/>
+
+        <!-- Configurations for the PX4 -->
+        <arg name="px4_configTarget" value="$(arg px4_configTarget)" />
+	    <arg name="px4_name_configTarget" value="$(arg px4_name_configTarget)" />
+    </include>
+
+</launch>

@@ -286,6 +286,32 @@ endif()
 
 
 
+add_executable(offboard_example src/offboard_example.cpp)
+target_link_libraries(offboard_example ${catkin_LIBRARIES})
+
+
+add_executable(offboard_shuttle_vel_control src/offboard_shuttle_vel_control.cpp)
+target_link_libraries(offboard_shuttle_vel_control ${catkin_LIBRARIES})
+
+add_executable(offboard_target_control src/offboard_target_control.cpp)
+target_link_libraries(offboard_target_control ${catkin_LIBRARIES})
+
+add_executable(offboard_target_path_following src/offboard_target_path_following.cpp)
+target_link_libraries(offboard_target_path_following ${catkin_LIBRARIES})
+
+add_executable(send_shuttle_target_pos src/send_shuttle_target_pos.cpp)
+target_link_libraries(send_shuttle_target_pos ${catkin_LIBRARIES})
+
+add_executable(offboard_shuttle_follower src/offboard_shuttle_follower.cpp)
+target_link_libraries(offboard_shuttle_follower ${catkin_LIBRARIES})
+
+add_executable(offboard_shuttle_follower_controller src/offboard_shuttle_follower_controller.cpp)
+target_link_libraries(offboard_shuttle_follower_controller ${catkin_LIBRARIES})
+
+add_executable(offboard_shuttle_follower_2shuttles src/offboard_shuttle_follower_2shuttles.cpp)
+target_link_libraries(offboard_shuttle_follower_2shuttles ${catkin_LIBRARIES})
+
+
 
 
 add_executable(field_test_offboard_shuttle_vel_control src/field_test_offboard_shuttle_vel_control.cpp)
@@ -296,12 +322,36 @@ target_link_libraries(field_test_send_shuttle_target_pos ${catkin_LIBRARIES})
 
 
 
+add_executable(target_state_logger src/target_state_logger.cpp)
+target_link_libraries(target_state_logger ${catkin_LIBRARIES})
+
+add_executable(target_state_reader src/target_state_reader.cpp)
+target_link_libraries(target_state_reader ${catkin_LIBRARIES})
 
 
+
+
+
+
+add_executable(field_test_offboard_shuttle_follower_controller_virtual_target src/field_test_offboard_shuttle_follower_controller_virtual_target.cpp)
+target_link_libraries(field_test_offboard_shuttle_follower_controller_virtual_target ${catkin_LIBRARIES} ${CASADI_LIBRARIES})
 
 
 add_executable(field_test_offboard_shuttle_follower_mpc_virtual_point src/field_test_offboard_shuttle_follower_mpc_virtual_point.cpp)
 target_link_libraries(field_test_offboard_shuttle_follower_mpc_virtual_point ${catkin_LIBRARIES} ${CASADI_LIBRARIES})
+
+
+add_executable(offboard_shuttle_follower_mpc_controller src/offboard_shuttle_follower_mpc_controller.cpp)
+target_link_libraries(offboard_shuttle_follower_mpc_controller ${catkin_LIBRARIES} ${CASADI_LIBRARIES})
+
+add_executable(example_use_nlp_external src/example_use_nlp_external.cpp)
+target_link_libraries(example_use_nlp_external ${catkin_LIBRARIES} ${CASADI_LIBRARIES})
+
+add_executable(example_code_gen src/example_code_gen.cpp)
+target_link_libraries(example_code_gen ${catkin_LIBRARIES} ${CASADI_LIBRARIES})
+
+add_executable(offboard_shuttle_follower_mpc_2shuttles src/offboard_shuttle_follower_mpc_2shuttles.cpp)
+target_link_libraries(offboard_shuttle_follower_mpc_2shuttles ${catkin_LIBRARIES} ${CASADI_LIBRARIES})
 
 
 
