@@ -54,6 +54,9 @@
     <param name="initialRelativeDistanceY" type="double" value="$(eval arg('yTarget') - arg('yShuttle'))"/>
     <param name="initialRelativeDistanceZ" type="double" value="$(eval arg('zTarget') - arg('zShuttle'))"/>
 
+    <include file="$(find cooperative_planning)/launch/algorithm_nodes2shuttles.launch"/>
+
+
     <!-- Gazebo sim -->
     <include file="$(find gazebo_ros)/launch/empty_world.launch">
         <arg name="gui" value="$(arg gui)"/>

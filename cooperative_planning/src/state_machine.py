@@ -24,8 +24,10 @@ class SendToWaitingPoint(smach.State):
         self.reached_pos_sub = rospy.Subscriber("/cooperative_planning/state_machine/shuttle_reached_desired_position", Empty, self.posReachedCb)
         
         pos_to_send = Point() #hardcoded shuttle waiting point
-        pos_to_send.x = 35.35
-        pos_to_send.y = -9.75
+        #pos_to_send.x = 35.35
+        #pos_to_send.y = -9.75
+        pos_to_send.x = 0
+        pos_to_send.y = 0
         pos_to_send.z = -25
         self.target_pos_pub.publish(pos_to_send)
 

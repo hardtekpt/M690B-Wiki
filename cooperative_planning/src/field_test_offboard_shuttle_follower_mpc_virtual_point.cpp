@@ -8,7 +8,7 @@
 #include <std_msgs/Int32.h>
 #include <std_msgs/Empty.h>
 #include <std_msgs/String.h>
-
+#include <visualization_msgs/Marker.h>
 
 #include <mavros_msgs/CommandBool.h>
 #include <mavros_msgs/SetMode.h>
@@ -54,7 +54,7 @@ double desiredHeading;
 
 double kp_velocity = 1, ki_velocity = 0, kd_velocity = 0, kp_heading = 1;
 int proximity_radius_shuttle = 1;
-int proximity_radius_target = 10;
+int proximity_radius_target = 15;
 int target_shuttle_vertical_closeness = 6;
 int target_shuttle_horizontal_closeness = 4;
 int verticalDistance = 2;
@@ -170,8 +170,7 @@ int main (int argc, char ** argv){
     
 
     ros::Publisher target_states_pub = nh->advertise<std_msgs::String>("cooperative_planning/virtual_point_states", 10);
-    ros::Publisher target_pose_pub = nh->advertise<geometry_msgs::PoseStamped>("cooperative_planning/target_pose", 10);
-
+    ros::Publisher target_pose_pub = nh->advertise<visualization_msgs::Marker>("cooperative_planning/target_pose", 10);
 
 
     /* Create the drone objects */
@@ -188,13 +187,14 @@ int main (int argc, char ** argv){
     
 
     
-    referential_relative_to_shuttle_x = 5;
-    referential_relative_to_shuttle_y = 5;
+    referential_relative_to_shuttle_x = 0;
+    referential_relative_to_shuttle_y = 0;
     referential_relative_to_shuttle_z = 0;
+    target_inform_point[0][0]=40; target_inform_point[1][0]=-15; target_inform_point[2][0]=-25;    
 
 
      // file name
-    std::string file_name = "gen_follower_only";
+    std::string file_name = "gen";
      // code predix
     std::string prefix_code = ros::package::getPath("cooperative_planning") + "/include/";
     // shared library prefix
@@ -220,7 +220,7 @@ int main (int argc, char ** argv){
 	yaw = 0.0;
     
     shuttle->start_offboard_mission();
-    shuttle->set_pos_yaw(pos, yaw, 10);
+    shuttle->set_pos_yaw(pos, yaw, 3);
 
     
     
@@ -232,6 +232,15 @@ int main (int argc, char ** argv){
 
 
 
+    desiredPosition.x = 0;
+    desiredPosition.y = 0;
+    desiredPosition.z = -25;   
+    pos[0][0]=desiredPosition.x; pos[1][0]=desiredPosition.y; pos[2][0]=desiredPosition.z;
+	yaw = 0.0;
+    
+    shuttle->set_pos_yaw(pos, yaw, 3);
+
+
   // file name
     std::string log_file_name = "target_states_logs";
     std::string prefix_log = ros::package::getPath("cooperative_planning") + "/include/";
@@ -239,6 +248,15 @@ int main (int argc, char ** argv){
 
     std::ifstream myfile;
     myfile.open (log_name);
+
+
+
+int target_reached_inform = 0;
+
+
+
+
+
 
 
     while(ros::ok() && !finished_trajectory){
@@ -276,17 +294,14 @@ int main (int argc, char ** argv){
             target_states_pub.publish(msg);
 
 
-
          
+            if ( (abs(state1+ referential_relative_to_shuttle_x- target_inform_point[0][0]) < proximity_radius_target) && (abs(state2 + referential_relative_to_shuttle_y - target_inform_point[1][0]) < proximity_radius_target) )
+                target_reached_inform = 1;
 
 
-
-
-
-
-                mpcController( mpc_control, referential_relative_to_shuttle_x,referential_relative_to_shuttle_y,referential_relative_to_shuttle_z, state1,state2,state3,state4,state5,state6,state7);
+            if(target_reached_inform)   mpcController( mpc_control, referential_relative_to_shuttle_x,referential_relative_to_shuttle_y,referential_relative_to_shuttle_z, state1,state2,state3,state4,state5,state6,state7);
                 
-
+            else shuttle->set_pos_yaw(pos, yaw, 0.001);
 
 
 

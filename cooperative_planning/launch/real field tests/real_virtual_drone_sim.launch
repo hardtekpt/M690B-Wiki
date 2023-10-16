@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<launch>
+
+  
+   <!-- Arguments received when starting the environment -->
+  <arg name="nameShuttle" default="typhoon_h480"/>
+  <arg name="nameTarget" default="plane"/>
+  <arg name="mission" default="simulation"/>
+  <arg name="IDShuttle" default="0"/>
+  <arg name="IDTarget" default="1"/>
+
+  <!-- Define the namespace for this drone being launched -->
+  <arg name="namespaceShuttle" value="$(arg nameShuttle)$(arg IDShuttle)"/>
+  <arg name="namespaceTarget" value="$(arg nameTarget)$(arg IDTarget)"/>
+
+
+ <!-- Load global vehicle parameters -->
+  <rosparam command="load" file="$(find drone_bringup)/config/$(arg mission)/$(arg nameShuttle)/config.yaml"/>
+  <param name="IDShuttle" type="int" value="$(arg IDShuttle)"/>
+  <param name="namespaceShuttle" type="string" value="$(arg namespaceShuttle)"/>
+  <param name="IDTarget" type="int" value="$(arg IDTarget)"/>
+  <param name="namespaceTarget" type="string" value="$(arg namespaceTarget)"/>
+
+
+
+   <node pkg="cooperative_planning" type="field_test_offboard_shuttle_follower_controller_virtual_target" name="controller_node"/> 
+   <node pkg="cooperative_planning" type="state_machine.py" name="state_machine_node"/> 
+
+
+
+ 
+
+</launch>

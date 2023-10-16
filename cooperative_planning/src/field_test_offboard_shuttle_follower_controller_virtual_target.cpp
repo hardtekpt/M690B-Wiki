@@ -46,7 +46,7 @@ double desiredHeading;
 
 double kp_velocity = 1, ki_velocity = 0, kd_velocity = 0, kp_heading = 1;
 int proximity_radius_shuttle = 1;
-int proximity_radius_target = 10;
+int proximity_radius_target = 5;
 int target_shuttle_vertical_closeness = 6;
 int target_shuttle_horizontal_closeness = 4;
 int verticalDistance = 2;
@@ -94,7 +94,7 @@ double minimum_distance = 10000;
 
 void calculateDesiredHeading(){
    desiredHeading = kp_heading*((atan2(desiredVelocityLinear.y , desiredVelocityLinear.x ) - M_PI/2) - shuttle->ekf.ang_vel[2][0]);
-
+    desiredHeading= 0; //O HEADING SO E IMPORTANTE QUNADO O MPC ESTIVER LIGADO MAS REVER
 }
 
 void calculateDesiredVelocityLinear(){//REVER ISTO POSSIVELMENTE ESTA MAL; CONFIRMAR DESIRED POSTION DEPOIS DE O COMANDAR COM GANHOS DIFERENTES
@@ -432,9 +432,16 @@ int main (int argc, char ** argv){
     referential_relative_to_shuttle_z = 0;
 
 
+
+/*        ROS_WARN_STREAM("Shuttle Current Position: " << shuttle->ekf.pos[0][0]  << "  " << shuttle->ekf.pos[1][0]  << "  " << shuttle->ekf.pos[2][0]);
+        ROS_WARN_STREAM("Target Current Position: " << target->ekf.pos[0][0]   << "  " << target->ekf.pos[1][0]  << "  " << target->ekf.pos[2][0]  );
+        ROS_WARN_STREAM("Target Current Position COM RELATIVE: " << target->ekf.pos[0][0] + referential_relative_to_shuttle_x  << "  " << target->ekf.pos[1][0] + referential_relative_to_shuttle_y << "  " << target->ekf.pos[2][0] + referential_relative_to_shuttle_z );
+*/
+
+
      //hardcoded trajectory points
-    shuttle_waiting_point[0][0]=35.35; shuttle_waiting_point[1][0]=-9.75; shuttle_waiting_point[2][0]=-25;    
-    target_inform_point[0][0]=90; target_inform_point[1][0]=-30; target_inform_point[2][0]=-25;    
+    shuttle_waiting_point[0][0]=0; shuttle_waiting_point[1][0]=0; shuttle_waiting_point[2][0]=-25;    
+    target_inform_point[0][0]=40; target_inform_point[1][0]=-15; target_inform_point[2][0]=-25;    
     //target_inform_point[0][0]=100; target_inform_point[1][0]=25; target_inform_point[2][0]=-25;    
     shuttle_stop_area[0][0]=-90; shuttle_stop_area[1][0]=37.33; shuttle_stop_area[2][0]=-25;    
 
@@ -475,17 +482,19 @@ int main (int argc, char ** argv){
     double pos[3][1], vel[3][1];
 	double yaw, t0, t;
 
-    desiredPosition.x = 0.0;
-    desiredPosition.y = 0.0;
-    desiredPosition.z = -25.0;
 
-    pos[0][0]=desiredPosition.x; pos[1][0]=desiredPosition.y; pos[2][0]=desiredPosition.z;
+    
+    pos[0][0]= target->ekf.pos[0][0] + referential_relative_to_shuttle_x;
+    pos[1][0] = target->ekf.pos[1][0] + referential_relative_to_shuttle_y;
+    pos[2][0]= -25.0;
+
+   // pos[0][0]=desiredPosition.x; pos[1][0]=desiredPosition.y; pos[2][0]=desiredPosition.z;
     //pos[0][0]=0; pos[1][0]=0; pos[2][0]=-3;
 	yaw = 0.0;
     
     shuttle->start_offboard_mission();
 
-    //shuttle->set_pos_yaw(pos, yaw, 10);
+    shuttle->set_pos_yaw(pos, yaw, 10);
 
     
     
