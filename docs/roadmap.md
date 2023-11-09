@@ -24,12 +24,12 @@ hide:
     * [x] Outdoor power on with blades (see if Pixhawk controller gains need to be changed)
 - [x] Range test
 - [x] Manual flight with data acquisition and ground monitoring
-- [ ] Dummy weight lifting tests (see if Pixhawk controller gains need to be changed) (no onboard computer installed) - create thrust curve.
-- [ ] PixHawk autonomous mission mode trials:
-    * [ ] Takeoff, hover, land (see if controller gains need to be changed)
-    * [ ] Typical mission for the controllers to be tested
-    * [ ] Off-board controller(s) running but not controlling vehicle (collected data used afterwards to see response of off-board controllers)
-- [ ] First off-board waypoint simple controller, no MPC, Guassian and/or GM;
+- [x] Dummy weight lifting tests (see if Pixhawk controller gains need to be changed) (no onboard computer installed) - create thrust curve.
+- [x] PixHawk autonomous mission mode trials:
+    * [x] Takeoff, hover, land (see if controller gains need to be changed)
+    * [x] Typical mission for the controllers to be tested
+    * [x] Off-board controller(s) running but not controlling vehicle (collected data used afterwards to see response of off-board controllers)
+- [x] First off-board waypoint simple controller, no MPC, Guassian and/or GM;
 - [ ] Online off-board MPC mission for PirePuma algorithms;
 - [ ] Repeat previous trials with improved missions or algorithms.
 

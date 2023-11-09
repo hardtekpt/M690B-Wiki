@@ -7,6 +7,9 @@ import rospy
 from mavros_msgs.srv import SetMode, CommandBool, CommandTOL
 from mavros_msgs.msg import State
 from sensor_msgs.msg import BatteryState
+from sensor_msgs.msg import NavSatFix
+from geographic_msgs.msg import GeoPointStamped
+from geometry_msgs.msg import PoseStamped
 
 from textual.app import App, ComposeResult
 from textual.widgets import Header, Footer, Button, Static, Label
@@ -14,6 +17,15 @@ from textual.containers import Horizontal, Vertical
 from textual.reactive import reactive
 
 from threading import Timer
+
+def set_home():
+    
+    new_home = GeoPointStamped()
+    new_home.position.latitude = gps_pos.latitude
+    new_home.position.longitude = gps_pos.longitude
+    new_home.position.altitude = gps_pos.altitude
+
+    set_home_pub.publish(new_home)
 
 class set_default_variant_timer():
     def __init__(self, button, duration):
@@ -48,6 +60,16 @@ def battery_callback(battery_msg:BatteryState):
     global battery_state
     battery_state = battery_msg
 
+def save_gps_callback(gps_msg: NavSatFix):
+
+    global gps_pos
+    gps_pos = gps_msg
+
+def save_local_pos_callback(local_pos_msg: PoseStamped):
+
+    global local_pos
+    local_pos = local_pos_msg
+
 class CurrentBatteryState(Static):
     
     battery = reactive("battery")
@@ -63,13 +85,36 @@ class CurrentBatteryState(Static):
             current = battery_state.current
             charge = battery_state.charge
             percentage = battery_state.percentage
-            self.battery = (f"Voltage: {voltage:02,.02f}, Current: {current:02,.02f}, Charge: {charge:02,.02f}, Percentage: {percentage:02,.02f}")
+            self.battery = (f"Voltage: {voltage:02,.02f}, Current: {current:02,.02f}, Percentage: {percentage:02,.02f}")
         except:
             self.battery = ("Undefined")
 
     def watch_battery(self, battery: float) -> None:
         """Called when the mode attribute changes."""
         self.update(battery)
+
+class CurrentLocalPos(Static):
+    
+    pos = reactive("pos")
+
+    def on_mount(self) -> None:
+        """Event handler called when widget is added to the app."""
+        self.set_interval(1 / 60, self.update_pos)
+
+    def update_pos(self) -> None:
+        """Method to update the time to the current time."""
+        try:
+            x = local_pos.pose.position.x
+            y = local_pos.pose.position.y
+            z = local_pos.pose.position.z
+
+            self.pos = (f"X: {x:02,.02f}, Y: {y:02,.02f}, Z: {z:02,.02f}")
+        except:
+            self.pos = ("Undefined")
+
+    def watch_pos(self, pos: float) -> None:
+        """Called when the mode attribute changes."""
+        self.update(pos)
 
 class CurrentFlightMode(Static):
 
@@ -174,6 +219,27 @@ class Arming(Static):
             yield Button("Takeoff", id="takeoff", variant="default")
             yield Button("Land", id="land", variant="default")
 
+class ToolsTitle(Static):
+
+    def compose(self) -> ComposeResult:
+        with Horizontal():
+            yield Label("Position Tools:")
+
+class Tools(Static):
+    
+    def on_button_pressed(self, event: Button.Pressed) -> None:
+
+        button_id = event.button.id
+        
+        if button_id == "set_home":
+            set_home()
+
+    def compose(self) -> ComposeResult:
+        with Horizontal():
+            yield Button("Set Home", id="set_home", variant="default")
+            yield Label("Local Position: ", classes="flight_modes_label")
+            yield CurrentLocalPos("Current Local Position")
+
 class Battery(Static):
     
     def compose(self) -> ComposeResult:
@@ -192,6 +258,8 @@ class MavToolsApp(App):
         yield FlightModes()
         yield ArmingState()
         yield Arming()
+        yield ToolsTitle()
+        yield Tools()
         yield Battery()
 
     def action_toggle_dark(self) -> None:
@@ -211,6 +279,10 @@ if __name__ == "__main__":
 
     rospy.Subscriber(ns+"/mavros/state", State, state_callback)
     rospy.Subscriber(ns+"/mavros/battery", BatteryState, battery_callback)
+    rospy.Subscriber(ns+"/mavros/global_position/global", NavSatFix, save_gps_callback)
+    rospy.Subscriber(ns+"/mavros/local_position/pose", PoseStamped, save_local_pos_callback)
+
+    set_home_pub = rospy.Publisher(ns+"mavros/global_position/set_gp_origin", GeoPointStamped, queue_size=10)
 
     set_mode = rospy.ServiceProxy(ns+'/mavros/set_mode', SetMode)
     arm_disarm = rospy.ServiceProxy(ns+'/mavros/cmd/arming', CommandBool)

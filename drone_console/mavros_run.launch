@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<launch>
+
+  <!-- Vehicle's name and identifier -->
+  <arg name="name" default="m690b"/>
+  <arg name="ID" default="1"/>
+  <arg name="mission" default="real"/>
+
+  <!-- Launch the UAV with the appropriate namespace -->
+  <group ns="$(arg name)$(arg ID)">
+
+    <!-- MAVROS and vehicle configs -->
+    <arg name="GCS_IP" default="192.168.1.99"/>
+    <arg name="GCS_PORT" default="$(eval 15000 + arg('ID'))"/>
+
+    <!-- MAVROS Configurations -->
+    <include file="$(find mavros)/launch/px4.launch">
+      <arg name="fcu_url" value="/dev/ttyUSB0:921600"/>
+      <arg name="gcs_url" value="udp://@$(arg GCS_IP):$(arg GCS_PORT)"/>
+      <arg name="tgt_system" value="$(eval arg('ID'))"/>
+      <arg name="tgt_component" value="1"/>
+    </include>
+
+   </group>
+</launch>
