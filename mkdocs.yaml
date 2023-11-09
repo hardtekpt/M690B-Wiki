@@ -106,8 +106,8 @@ nav:
     #  - VRPN and MAVROS setup: 'Software Setup/vrpn_and_mavros.md'
     - Software Setup:
       - 'Software Setup/index.md'
-      - OS installation and Setup: 'Software Setup V2/os_installation.md'
-      - ROS and MAVROS installation: 'Software Setup V2/ros_installation.md'
+      - OS installation and Setup: 'Software Setup/os_installation.md'
+      - ROS and MAVROS installation: 'Software Setup/ros_installation.md'
       - PX4 Configuration Checklist: 'Software Setup/px4_configuration_checklist.md'
       - Drone Control Stack Setup: 'Software Setup/drone_control_stack.md'
       - Usefull Packages: 'Software Setup/usefull_packages.md'
