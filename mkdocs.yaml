@@ -68,11 +68,23 @@ plugins:
       lang:
       - en
       - pt
+  - mike:
+      # These fields are all optional; the defaults are as below...
+      alias_type: symlink
+      redirect_template: null
+      deploy_prefix: ''
+      canonical_version: null
+      version_selector: true
+      css_dir: css
+      javascript_dir: js
 extra:
   # ---------------------
   # Remove the 'made with mkdocs'
   # ---------------------
   generator: false
+  version:
+    provider: mike
+    default: latest
 extra_css:
   - stylesheets/extra.css
 extra_javascript:
@@ -84,11 +96,11 @@ nav:
     - 'Vehicle Setup/index.md'
     - Hardware Setup: 
       - 'Hardware Setup/index.md'
-      - Onboard Computer V1: 'Hardware Setup/onboard_computer_v1.md'
-      - Onboard Computer V2: 'Hardware Setup/onboard_computer_v2.md'
+      - Onboard Computer: 'Hardware Setup/onboard_computer_v1.md'
+    #  - Onboard Computer V2: 'Hardware Setup/onboard_computer_v2.md'
       - Flight Computer: 'Hardware Setup/flight_computer.md'
       - Radio and Receiver: 'Hardware Setup/radio_and_receiver.md'
-    - Software Setup V1:
+    - Software Setup:
       - 'Software Setup/index.md'
       - OS and ROS installation: 'Software Setup/os_installation.md'
       - VRPN and MAVROS setup: 'Software Setup/vrpn_and_mavros.md'
@@ -96,10 +108,10 @@ nav:
       - Drone Control Stack Setup: 'Software Setup/drone_control_stack.md'
       - Usefull Packages: 'Software Setup/usefull_packages.md'
       - Drone Console: 'Software Setup/drone_console.md'
-    - Software Setup V2:
-      - 'Software Setup V2/index.md'
-      - OS installation and Setup: 'Software Setup V2/os_installation.md'
-      - ROS and MAVROS installation: 'Software Setup V2/ros_installation.md'
+    #- Software Setup V2:
+    #  - 'Software Setup V2/index.md'
+    #  - OS installation and Setup: 'Software Setup V2/os_installation.md'
+    #  - ROS and MAVROS installation: 'Software Setup V2/ros_installation.md'
   - Known Issues: 'known_issues.md'
   - Mission Logs:
     - 'Mission Logs/index.md'
