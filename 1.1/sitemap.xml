@@ -6,11 +6,6 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://hardtekpt.github.io/M690B-Wiki/1.1/generating_docs/</loc>
-         <lastmod>2023-11-14</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
          <loc>https://hardtekpt.github.io/M690B-Wiki/1.1/known_issues/</loc>
          <lastmod>2023-11-14</lastmod>
          <changefreq>daily</changefreq>
@@ -87,6 +82,16 @@
     </url>
     <url>
          <loc>https://hardtekpt.github.io/M690B-Wiki/1.1/Mission%20Logs/29-09-2023/</loc>
+         <lastmod>2023-11-14</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://hardtekpt.github.io/M690B-Wiki/1.1/Reference/equipment_details/</loc>
+         <lastmod>2023-11-14</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://hardtekpt.github.io/M690B-Wiki/1.1/Reference/generating_docs/</loc>
          <lastmod>2023-11-14</lastmod>
          <changefreq>daily</changefreq>
     </url>
