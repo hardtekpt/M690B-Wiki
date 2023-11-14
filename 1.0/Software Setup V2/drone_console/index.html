@@ -10,24 +10,24 @@
         <meta name="author" content="Francisco Santos">
       
       
-        <link rel="canonical" href="https://hardtekpt.github.io/M690B-Wiki/1.0/Software%20Setup%20%28legacy%29/">
+        <link rel="canonical" href="https://hardtekpt.github.io/M690B-Wiki/1.0/Software%20Setup%20V2/drone_console/">
       
       
       
       
-      <link rel="icon" href="../assets/images/favicon.png">
+      <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.8">
     
     
       
-        <title>Software Setup V2 - M690B Wiki</title>
+        <title>Drone Console - M690B Wiki</title>
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.4b4a2bd9.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.4b4a2bd9.min.css">
       
         
-        <link rel="stylesheet" href="../assets/stylesheets/palette.356b1318.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.356b1318.min.css">
       
       
 
@@ -46,9 +46,9 @@
       
     
     
-      <link rel="stylesheet" href="../stylesheets/extra.css">
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
     
-    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -77,7 +77,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#software-setup-v2" class="md-skip">
+        <a href="#drone-console" class="md-skip">
           Skip to content
         </a>
       
@@ -95,7 +95,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href=".." title="M690B Wiki" class="md-header__button md-logo" aria-label="M690B Wiki" data-md-component="logo">
+    <a href="../.." title="M690B Wiki" class="md-header__button md-logo" aria-label="M690B Wiki" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5.5 1C8 1 10 3 10 5.5c0 .88-.25 1.7-.69 2.4l.1.1h5.18l.1-.1c-.44-.7-.69-1.52-.69-2.4C14 3 16 1 18.5 1S23 3 23 5.5 21 10 18.5 10c-.88 0-1.7-.25-2.4-.69l-1.1 1.1v3.18l1.1 1.1c.7-.44 1.52-.69 2.4-.69 2.5 0 4.5 2 4.5 4.5S21 23 18.5 23 14 21 14 18.5c0-.88.25-1.7.69-2.4l-.1-.1H9.41l-.1.1c.44.7.69 1.52.69 2.4C10 21 8 23 5.5 23S1 21 1 18.5 3 14 5.5 14c.88 0 1.7.25 2.4.69l1.1-1.1v-3.18l-1.1-1.1c-.7.44-1.52.69-2.4.69C3 10 1 8 1 5.5S3 1 5.5 1m0 2A2.5 2.5 0 0 0 3 5.5 2.5 2.5 0 0 0 5.5 8 2.5 2.5 0 0 0 8 5.5 2.5 2.5 0 0 0 5.5 3m0 13A2.5 2.5 0 0 0 3 18.5 2.5 2.5 0 0 0 5.5 21 2.5 2.5 0 0 0 8 18.5 2.5 2.5 0 0 0 5.5 16m13-13A2.5 2.5 0 0 0 16 5.5 2.5 2.5 0 0 0 18.5 8 2.5 2.5 0 0 0 21 5.5 2.5 2.5 0 0 0 18.5 3m0 13a2.5 2.5 0 0 0-2.5 2.5 2.5 2.5 0 0 0 2.5 2.5 2.5 2.5 0 0 0 2.5-2.5 2.5 2.5 0 0 0-2.5-2.5M3.91 17.25l1.13.66c.13-.1.29-.16.46-.16a.75.75 0 0 1 .75.75l-.01.1 1.13.65-.28.5-1.13-.66c-.13.1-.29.16-.46.16a.75.75 0 0 1-.75-.75l.01-.1-1.13-.65.28-.5m-.28-11 1.13-.65-.01-.1a.75.75 0 0 1 .75-.75c.17 0 .33.06.46.16l1.13-.66.28.5-1.13.65.01.1a.75.75 0 0 1-.75.75c-.17 0-.33-.06-.46-.16l-1.13.66-.28-.5m13.28-2 1.13.66c.13-.1.29-.16.46-.16a.75.75 0 0 1 .75.75l-.01.1 1.13.65-.28.5-1.13-.66c-.13.1-.29.16-.46.16a.75.75 0 0 1-.75-.75l.01-.1-1.13-.65.28-.5m-.28 15 1.12-.75a.75.75 0 0 1 .75-.75c.17 0 .33.06.46.16l1.13-.66.28.5-1.12.75a.75.75 0 0 1-.75.75c-.17 0-.33-.06-.46-.16l-1.13.66-.28-.5Z"/></svg>
@@ -115,7 +115,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Software Setup V2
+              Drone Console
             
           </span>
         </div>
@@ -226,7 +226,7 @@
   
   
     <li class="md-tabs__item">
-      <a href=".." class="md-tabs__link">
+      <a href="../.." class="md-tabs__link">
         
   
     
@@ -245,7 +245,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../Vehicle%20Setup/" class="md-tabs__link">
+        <a href="../../Vehicle%20Setup/" class="md-tabs__link">
           
   
     
@@ -263,7 +263,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../known_issues/" class="md-tabs__link">
+      <a href="../../known_issues/" class="md-tabs__link">
         
   
     
@@ -282,7 +282,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../Mission%20Logs/" class="md-tabs__link">
+        <a href="../../Mission%20Logs/" class="md-tabs__link">
           
   
     
@@ -300,7 +300,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../roadmap/" class="md-tabs__link">
+      <a href="../../roadmap/" class="md-tabs__link">
         
   
     
@@ -338,7 +338,7 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href=".." title="M690B Wiki" class="md-nav__button md-logo" aria-label="M690B Wiki" data-md-component="logo">
+    <a href="../.." title="M690B Wiki" class="md-nav__button md-logo" aria-label="M690B Wiki" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5.5 1C8 1 10 3 10 5.5c0 .88-.25 1.7-.69 2.4l.1.1h5.18l.1-.1c-.44-.7-.69-1.52-.69-2.4C14 3 16 1 18.5 1S23 3 23 5.5 21 10 18.5 10c-.88 0-1.7-.25-2.4-.69l-1.1 1.1v3.18l1.1 1.1c.7-.44 1.52-.69 2.4-.69 2.5 0 4.5 2 4.5 4.5S21 23 18.5 23 14 21 14 18.5c0-.88.25-1.7.69-2.4l-.1-.1H9.41l-.1.1c.44.7.69 1.52.69 2.4C10 21 8 23 5.5 23S1 21 1 18.5 3 14 5.5 14c.88 0 1.7.25 2.4.69l1.1-1.1v-3.18l-1.1-1.1c-.7.44-1.52.69-2.4.69C3 10 1 8 1 5.5S3 1 5.5 1m0 2A2.5 2.5 0 0 0 3 5.5 2.5 2.5 0 0 0 5.5 8 2.5 2.5 0 0 0 8 5.5 2.5 2.5 0 0 0 5.5 3m0 13A2.5 2.5 0 0 0 3 18.5 2.5 2.5 0 0 0 5.5 21 2.5 2.5 0 0 0 8 18.5 2.5 2.5 0 0 0 5.5 16m13-13A2.5 2.5 0 0 0 16 5.5 2.5 2.5 0 0 0 18.5 8 2.5 2.5 0 0 0 21 5.5 2.5 2.5 0 0 0 18.5 3m0 13a2.5 2.5 0 0 0-2.5 2.5 2.5 2.5 0 0 0 2.5 2.5 2.5 2.5 0 0 0 2.5-2.5 2.5 2.5 0 0 0-2.5-2.5M3.91 17.25l1.13.66c.13-.1.29-.16.46-.16a.75.75 0 0 1 .75.75l-.01.1 1.13.65-.28.5-1.13-.66c-.13.1-.29.16-.46.16a.75.75 0 0 1-.75-.75l.01-.1-1.13-.65.28-.5m-.28-11 1.13-.65-.01-.1a.75.75 0 0 1 .75-.75c.17 0 .33.06.46.16l1.13-.66.28.5-1.13.65.01.1a.75.75 0 0 1-.75.75c-.17 0-.33-.06-.46-.16l-1.13.66-.28-.5m13.28-2 1.13.66c.13-.1.29-.16.46-.16a.75.75 0 0 1 .75.75l-.01.1 1.13.65-.28.5-1.13-.66c-.13.1-.29.16-.46.16a.75.75 0 0 1-.75-.75l.01-.1-1.13-.65.28-.5m-.28 15 1.12-.75a.75.75 0 0 1 .75-.75c.17 0 .33.06.46.16l1.13-.66.28.5-1.12.75a.75.75 0 0 1-.75.75c-.17 0-.33-.06-.46-.16l-1.13.66-.28-.5Z"/></svg>
@@ -367,7 +367,7 @@
   
   
     <li class="md-nav__item">
-      <a href=".." class="md-nav__link">
+      <a href="../.." class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -413,7 +413,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../Vehicle%20Setup/" class="md-nav__link ">
+            <a href="../../Vehicle%20Setup/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -474,7 +474,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../Hardware%20Setup/" class="md-nav__link ">
+            <a href="../../Hardware%20Setup/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -506,7 +506,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Hardware%20Setup/onboard_computer/" class="md-nav__link">
+      <a href="../../Hardware%20Setup/onboard_computer/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -526,7 +526,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Hardware%20Setup/flight_computer/" class="md-nav__link">
+      <a href="../../Hardware%20Setup/flight_computer/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -546,7 +546,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Hardware%20Setup/radio_and_receiver/" class="md-nav__link">
+      <a href="../../Hardware%20Setup/radio_and_receiver/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -607,7 +607,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../Software%20Setup/" class="md-nav__link ">
+            <a href="../../Software%20Setup/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -639,11 +639,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../Software%20Setup/os_installation/" class="md-nav__link">
+      <a href="../../Software%20Setup/os_installation/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    OS installation and Setup
+    OS and ROS installation
   </span>
   
 
@@ -659,11 +659,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../Software Setup/ros_installation.md" class="md-nav__link">
+      <a href="../../Software Setup/vrpn_and_mavros.md" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    ROS and MAVROS installation
+    VRPN and MAVROS setup
   </span>
   
 
@@ -679,7 +679,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Software%20Setup/px4_configuration_checklist/" class="md-nav__link">
+      <a href="../../Software%20Setup/px4_configuration_checklist/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -699,7 +699,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Software%20Setup/drone_control_stack/" class="md-nav__link">
+      <a href="../../Software%20Setup/drone_control_stack/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -719,7 +719,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Software%20Setup/usefull_packages/" class="md-nav__link">
+      <a href="../../Software%20Setup/usefull_packages/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -754,7 +754,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../known_issues/" class="md-nav__link">
+      <a href="../../known_issues/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -812,7 +812,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../Mission%20Logs/" class="md-nav__link ">
+            <a href="../../Mission%20Logs/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -844,7 +844,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Mission%20Logs/05-07-2023/" class="md-nav__link">
+      <a href="../../Mission%20Logs/05-07-2023/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -864,7 +864,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Mission%20Logs/13-07-2023/" class="md-nav__link">
+      <a href="../../Mission%20Logs/13-07-2023/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -884,7 +884,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Mission%20Logs/20-07-2023/" class="md-nav__link">
+      <a href="../../Mission%20Logs/20-07-2023/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -904,7 +904,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Mission%20Logs/27-07-2023/" class="md-nav__link">
+      <a href="../../Mission%20Logs/27-07-2023/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -924,7 +924,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Mission%20Logs/28-07-2023/" class="md-nav__link">
+      <a href="../../Mission%20Logs/28-07-2023/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -944,7 +944,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Mission%20Logs/22-09-2023/" class="md-nav__link">
+      <a href="../../Mission%20Logs/22-09-2023/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -964,7 +964,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Mission%20Logs/29-09-2023/" class="md-nav__link">
+      <a href="../../Mission%20Logs/29-09-2023/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -984,7 +984,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Mission%20Logs/13-10-2023/" class="md-nav__link">
+      <a href="../../Mission%20Logs/13-10-2023/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1011,7 +1011,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../roadmap/" class="md-nav__link">
+      <a href="../../roadmap/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1042,24 +1042,25 @@
   
 
 
-<h1 id="software-setup-v2">Software Setup V2</h1>
-<p>This section describes in detail all the procedures used to install and configure the software that runs on the vehicle's hardware components. </p>
-<pre class="mermaid"><code>graph LR
-  A(MOCAP) -- UDP --&gt; B(ROUTER)
-  B -- UDP --&gt; C(vrpn_client_ros)
-  subgraph Onboard Computer
-    C -- ROSTOPIC --- D(MAVROS)
-    G("Main Algorithm (Mission)") -- ROSTOPIC --- D
-  end
-  subgraph Flight Computer
-    D -- MAVLINK --- E(PX4-Autopilot)
-  end
-  B -- "UDP (gcs_url)" --- D
-  subgraph Companion Computer
-    F(QGroundControl)
-  end
-  F -- "UDP (fcu_url)" --- B
-  F-. "TELEM RADIO" .- E</code></pre>
+<h1 id="drone-console">Drone Console</h1>
+<p>This section describes the console created to facilitate the process of monitoring the vehicle and running offboard algorithms during real trials. It contains several features like battery monitoring and access to the PX4 via mavros.</p>
+<h2 id="installation">Installation</h2>
+<p>The files required for the drone console include the <strong>mav_tools</strong> ROS package as well as a couple of scripts which can be found <a href="https://github.com/hardtekpt/M690B-Wiki/tree/master/drone_console">here</a>. The scripts folder should be placed in the home folder and the <strong>mav_tools</strong> package should be placed in the catkin workspace.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>To run the <code>drone_console.bash</code> when the drone boots, add this to your crontab (<code>crontab -e</code>): <code>@reboot /home/jetson/scripts/drone_console.bash</code></p>
+</div>
+<h2 id="usage">Usage</h2>
+<p>To open the <strong>drone console</strong> start by login in into the drone. To make it easier, add this to your <code>bashrc</code>:</p>
+<p>'''bash
+alias drone_console='tmux a -t drone_console'
+'''</p>
+<p>In this way, the console can be accessed using the <code>drone_console</code> command.</p>
+<h2 id="demo">Demo</h2>
+<p>In the main window, there are four panels. In the top left is the <strong>mav_tools</strong> ros package, which allows easy monitoring and basic control of the vehicle. In the bottom left, mavros is running, so that a connection to the PX4 is always available via ROS. In the top right, a terminal is available for running the offboard algorithms. Finally, in the bottom right a terminal has the <code>drone_bringup.launch</code> file open so that the mission to be ran can be configured.</p>
+<p><img alt="Drone console ui" src="../../assets/drone_console1.png" title="Drone console ui" /></p>
+<p>In the second window a panel shows the recorded rosbag files and a second panel provides an auxiliary terminal.</p>
+<p><img alt="Drone console ui" src="../../assets/drone_console2.png" title="Drone console ui" /></p>
 
 
 
@@ -1103,12 +1104,12 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.instant", "navigation.tracking", "navigation.sections", "toc.follow", "navigation.top", "search.suggest", "search.highlight", "search.share", "navigation.footer", "toc.integrate", "navigation.indexes", "navigation.tabs"], "search": "../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"default": "latest", "provider": "mike"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.tracking", "navigation.sections", "toc.follow", "navigation.top", "search.suggest", "search.highlight", "search.share", "navigation.footer", "toc.integrate", "navigation.indexes", "navigation.tabs"], "search": "../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"default": "latest", "provider": "mike"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.81fa17fe.min.js"></script>
+      <script src="../../assets/javascripts/bundle.81fa17fe.min.js"></script>
       
-        <script src="../stylesheets/js.js"></script>
+        <script src="../../stylesheets/js.js"></script>
       
     
   </body>

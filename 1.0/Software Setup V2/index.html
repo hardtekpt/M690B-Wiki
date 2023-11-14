@@ -10,24 +10,24 @@
         <meta name="author" content="Francisco Santos">
       
       
-        <link rel="canonical" href="https://hardtekpt.github.io/M690B-Wiki/1.0/Software%20Setup%20%28legacy%29/drone_control_stack/">
+        <link rel="canonical" href="https://hardtekpt.github.io/M690B-Wiki/1.0/Software%20Setup%20V2/">
       
       
       
       
-      <link rel="icon" href="../../assets/images/favicon.png">
+      <link rel="icon" href="../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.8">
     
     
       
-        <title>Drone Control Stack Setup - M690B Wiki</title>
+        <title>Software Setup - M690B Wiki</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.4b4a2bd9.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.4b4a2bd9.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.356b1318.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/palette.356b1318.min.css">
       
       
 
@@ -46,9 +46,9 @@
       
     
     
-      <link rel="stylesheet" href="../../stylesheets/extra.css">
+      <link rel="stylesheet" href="../stylesheets/extra.css">
     
-    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -77,7 +77,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#drone-control-stack-setup" class="md-skip">
+        <a href="#software-setup" class="md-skip">
           Skip to content
         </a>
       
@@ -95,7 +95,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../.." title="M690B Wiki" class="md-header__button md-logo" aria-label="M690B Wiki" data-md-component="logo">
+    <a href=".." title="M690B Wiki" class="md-header__button md-logo" aria-label="M690B Wiki" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5.5 1C8 1 10 3 10 5.5c0 .88-.25 1.7-.69 2.4l.1.1h5.18l.1-.1c-.44-.7-.69-1.52-.69-2.4C14 3 16 1 18.5 1S23 3 23 5.5 21 10 18.5 10c-.88 0-1.7-.25-2.4-.69l-1.1 1.1v3.18l1.1 1.1c.7-.44 1.52-.69 2.4-.69 2.5 0 4.5 2 4.5 4.5S21 23 18.5 23 14 21 14 18.5c0-.88.25-1.7.69-2.4l-.1-.1H9.41l-.1.1c.44.7.69 1.52.69 2.4C10 21 8 23 5.5 23S1 21 1 18.5 3 14 5.5 14c.88 0 1.7.25 2.4.69l1.1-1.1v-3.18l-1.1-1.1c-.7.44-1.52.69-2.4.69C3 10 1 8 1 5.5S3 1 5.5 1m0 2A2.5 2.5 0 0 0 3 5.5 2.5 2.5 0 0 0 5.5 8 2.5 2.5 0 0 0 8 5.5 2.5 2.5 0 0 0 5.5 3m0 13A2.5 2.5 0 0 0 3 18.5 2.5 2.5 0 0 0 5.5 21 2.5 2.5 0 0 0 8 18.5 2.5 2.5 0 0 0 5.5 16m13-13A2.5 2.5 0 0 0 16 5.5 2.5 2.5 0 0 0 18.5 8 2.5 2.5 0 0 0 21 5.5 2.5 2.5 0 0 0 18.5 3m0 13a2.5 2.5 0 0 0-2.5 2.5 2.5 2.5 0 0 0 2.5 2.5 2.5 2.5 0 0 0 2.5-2.5 2.5 2.5 0 0 0-2.5-2.5M3.91 17.25l1.13.66c.13-.1.29-.16.46-.16a.75.75 0 0 1 .75.75l-.01.1 1.13.65-.28.5-1.13-.66c-.13.1-.29.16-.46.16a.75.75 0 0 1-.75-.75l.01-.1-1.13-.65.28-.5m-.28-11 1.13-.65-.01-.1a.75.75 0 0 1 .75-.75c.17 0 .33.06.46.16l1.13-.66.28.5-1.13.65.01.1a.75.75 0 0 1-.75.75c-.17 0-.33-.06-.46-.16l-1.13.66-.28-.5m13.28-2 1.13.66c.13-.1.29-.16.46-.16a.75.75 0 0 1 .75.75l-.01.1 1.13.65-.28.5-1.13-.66c-.13.1-.29.16-.46.16a.75.75 0 0 1-.75-.75l.01-.1-1.13-.65.28-.5m-.28 15 1.12-.75a.75.75 0 0 1 .75-.75c.17 0 .33.06.46.16l1.13-.66.28.5-1.12.75a.75.75 0 0 1-.75.75c-.17 0-.33-.06-.46-.16l-1.13.66-.28-.5Z"/></svg>
@@ -115,7 +115,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Drone Control Stack Setup
+              Software Setup
             
           </span>
         </div>
@@ -226,7 +226,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../.." class="md-tabs__link">
+      <a href=".." class="md-tabs__link">
         
   
     
@@ -245,7 +245,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../Vehicle%20Setup/" class="md-tabs__link">
+        <a href="../Vehicle%20Setup/" class="md-tabs__link">
           
   
     
@@ -263,7 +263,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../known_issues/" class="md-tabs__link">
+      <a href="../known_issues/" class="md-tabs__link">
         
   
     
@@ -282,7 +282,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../Mission%20Logs/" class="md-tabs__link">
+        <a href="../Mission%20Logs/" class="md-tabs__link">
           
   
     
@@ -300,7 +300,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../roadmap/" class="md-tabs__link">
+      <a href="../roadmap/" class="md-tabs__link">
         
   
     
@@ -338,7 +338,7 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="M690B Wiki" class="md-nav__button md-logo" aria-label="M690B Wiki" data-md-component="logo">
+    <a href=".." title="M690B Wiki" class="md-nav__button md-logo" aria-label="M690B Wiki" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5.5 1C8 1 10 3 10 5.5c0 .88-.25 1.7-.69 2.4l.1.1h5.18l.1-.1c-.44-.7-.69-1.52-.69-2.4C14 3 16 1 18.5 1S23 3 23 5.5 21 10 18.5 10c-.88 0-1.7-.25-2.4-.69l-1.1 1.1v3.18l1.1 1.1c.7-.44 1.52-.69 2.4-.69 2.5 0 4.5 2 4.5 4.5S21 23 18.5 23 14 21 14 18.5c0-.88.25-1.7.69-2.4l-.1-.1H9.41l-.1.1c.44.7.69 1.52.69 2.4C10 21 8 23 5.5 23S1 21 1 18.5 3 14 5.5 14c.88 0 1.7.25 2.4.69l1.1-1.1v-3.18l-1.1-1.1c-.7.44-1.52.69-2.4.69C3 10 1 8 1 5.5S3 1 5.5 1m0 2A2.5 2.5 0 0 0 3 5.5 2.5 2.5 0 0 0 5.5 8 2.5 2.5 0 0 0 8 5.5 2.5 2.5 0 0 0 5.5 3m0 13A2.5 2.5 0 0 0 3 18.5 2.5 2.5 0 0 0 5.5 21 2.5 2.5 0 0 0 8 18.5 2.5 2.5 0 0 0 5.5 16m13-13A2.5 2.5 0 0 0 16 5.5 2.5 2.5 0 0 0 18.5 8 2.5 2.5 0 0 0 21 5.5 2.5 2.5 0 0 0 18.5 3m0 13a2.5 2.5 0 0 0-2.5 2.5 2.5 2.5 0 0 0 2.5 2.5 2.5 2.5 0 0 0 2.5-2.5 2.5 2.5 0 0 0-2.5-2.5M3.91 17.25l1.13.66c.13-.1.29-.16.46-.16a.75.75 0 0 1 .75.75l-.01.1 1.13.65-.28.5-1.13-.66c-.13.1-.29.16-.46.16a.75.75 0 0 1-.75-.75l.01-.1-1.13-.65.28-.5m-.28-11 1.13-.65-.01-.1a.75.75 0 0 1 .75-.75c.17 0 .33.06.46.16l1.13-.66.28.5-1.13.65.01.1a.75.75 0 0 1-.75.75c-.17 0-.33-.06-.46-.16l-1.13.66-.28-.5m13.28-2 1.13.66c.13-.1.29-.16.46-.16a.75.75 0 0 1 .75.75l-.01.1 1.13.65-.28.5-1.13-.66c-.13.1-.29.16-.46.16a.75.75 0 0 1-.75-.75l.01-.1-1.13-.65.28-.5m-.28 15 1.12-.75a.75.75 0 0 1 .75-.75c.17 0 .33.06.46.16l1.13-.66.28.5-1.12.75a.75.75 0 0 1-.75.75c-.17 0-.33-.06-.46-.16l-1.13.66-.28-.5Z"/></svg>
@@ -367,7 +367,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../.." class="md-nav__link">
+      <a href=".." class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -413,7 +413,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../Vehicle%20Setup/" class="md-nav__link ">
+            <a href="../Vehicle%20Setup/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -474,7 +474,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../Hardware%20Setup/" class="md-nav__link ">
+            <a href="../Hardware%20Setup/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -506,7 +506,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Hardware%20Setup/onboard_computer/" class="md-nav__link">
+      <a href="../Hardware%20Setup/onboard_computer/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -526,7 +526,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Hardware%20Setup/flight_computer/" class="md-nav__link">
+      <a href="../Hardware%20Setup/flight_computer/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -546,7 +546,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Hardware%20Setup/radio_and_receiver/" class="md-nav__link">
+      <a href="../Hardware%20Setup/radio_and_receiver/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -607,7 +607,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../Software%20Setup/" class="md-nav__link ">
+            <a href="../Software%20Setup/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -639,11 +639,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Software%20Setup/os_installation/" class="md-nav__link">
+      <a href="../Software%20Setup/os_installation/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    OS installation and Setup
+    OS and ROS installation
   </span>
   
 
@@ -659,11 +659,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Software Setup/ros_installation.md" class="md-nav__link">
+      <a href="../Software Setup/vrpn_and_mavros.md" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    ROS and MAVROS installation
+    VRPN and MAVROS setup
   </span>
   
 
@@ -679,7 +679,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Software%20Setup/px4_configuration_checklist/" class="md-nav__link">
+      <a href="../Software%20Setup/px4_configuration_checklist/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -699,7 +699,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Software%20Setup/drone_control_stack/" class="md-nav__link">
+      <a href="../Software%20Setup/drone_control_stack/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -719,7 +719,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Software%20Setup/usefull_packages/" class="md-nav__link">
+      <a href="../Software%20Setup/usefull_packages/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -754,7 +754,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../known_issues/" class="md-nav__link">
+      <a href="../known_issues/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -812,7 +812,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../Mission%20Logs/" class="md-nav__link ">
+            <a href="../Mission%20Logs/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -844,7 +844,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Mission%20Logs/05-07-2023/" class="md-nav__link">
+      <a href="../Mission%20Logs/05-07-2023/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -864,7 +864,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Mission%20Logs/13-07-2023/" class="md-nav__link">
+      <a href="../Mission%20Logs/13-07-2023/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -884,7 +884,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Mission%20Logs/20-07-2023/" class="md-nav__link">
+      <a href="../Mission%20Logs/20-07-2023/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -904,7 +904,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Mission%20Logs/27-07-2023/" class="md-nav__link">
+      <a href="../Mission%20Logs/27-07-2023/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -924,7 +924,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Mission%20Logs/28-07-2023/" class="md-nav__link">
+      <a href="../Mission%20Logs/28-07-2023/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -944,7 +944,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Mission%20Logs/22-09-2023/" class="md-nav__link">
+      <a href="../Mission%20Logs/22-09-2023/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -964,7 +964,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Mission%20Logs/29-09-2023/" class="md-nav__link">
+      <a href="../Mission%20Logs/29-09-2023/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -984,7 +984,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Mission%20Logs/13-10-2023/" class="md-nav__link">
+      <a href="../Mission%20Logs/13-10-2023/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1011,7 +1011,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../roadmap/" class="md-nav__link">
+      <a href="../roadmap/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1042,220 +1042,24 @@
   
 
 
-<h1 id="drone-control-stack-setup">Drone Control Stack Setup</h1>
-<p>This section describes the steps followed to install the drone control stack on the onboard computer. This stack is composed of ROS packages which allow the vehicle to be controlled from ROS nodes using the available cpp UAV class. It should be noted that the steps described include everything that is needed to run simulations in adition to controlling the real drone.</p>
-<h2 id="environment-setup">Environment Setup</h2>
-<p>Before installing the ROS packages, it is necessary to create a workspace and install the PX4 firmware (only used for simulations).</p>
-<ul>
-<li>
-<p>Creating a catkin workspace
-    <div class="highlight"><pre><span></span><code>mkdir<span class="w"> </span>~/uav/uav_ws/src
-<span class="nb">cd</span><span class="w"> </span>~/uav/uav_ws
-catkin_make
-</code></pre></div></p>
-</li>
-<li>
-<p>Installing the PX4 firmware
-    <div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>~/uav
-git<span class="w"> </span>clone<span class="w"> </span>--recursive<span class="w"> </span>https://github.com/PX4/PX4-Autopilot.git
-<span class="nb">cd</span><span class="w"> </span>PX4-Autopilot
-git<span class="w"> </span>fetch<span class="w"> </span>--all<span class="w"> </span>--tags
-git<span class="w"> </span>checkout<span class="w"> </span>v1.12.3<span class="w"> </span>-b<span class="w"> </span>latest
-git<span class="w"> </span>submodule<span class="w"> </span>update<span class="w"> </span>--init<span class="w"> </span>--recursive
-make<span class="w"> </span>px4_sitl<span class="w"> </span>gazebo
-</code></pre></div></p>
-</li>
-</ul>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>While installing the PX4 firmware, some missing packages might need to be installed with pip. If pip is not available it can be installed with <code>sudo apt install python3-pip</code>.</p>
-</div>
-<ul>
-<li>
-<p>In order not to pollute the <code>bashrc</code> profile, a script was created to load the needed environment variables
-    <div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>~/uav
-touch<span class="w"> </span>setup.bash
-</code></pre></div></p>
-</li>
-<li>
-<p>Contents of the <code>setup.bash</code> file
-    <div class="highlight"><pre><span></span><code><span class="nb">source</span><span class="w"> </span>~/uav/uav_ws/devel/setup.bash
-
-<span class="nb">export</span><span class="w"> </span><span class="nv">CATKIN_WORKSPACE</span><span class="o">=</span>~/uav/uav_ws
-
-<span class="nb">export</span><span class="w"> </span><span class="nv">GAZEBO_PLUGIN_PATH</span><span class="o">=</span><span class="nv">$GAZEBO_PLUGIN_PATH</span>:/home/jetson/uav/PX4-Autopilot/build_gazebo
-<span class="nb">export</span><span class="w"> </span><span class="nv">GAZEBO_MODEL_PATH</span><span class="o">=</span><span class="nv">$GAZEBO_MODEL_PATH</span>:/home/jetson/uav/PX4-Autopilot/Tools/sitl_gazebo/models
-
-<span class="nb">export</span><span class="w"> </span><span class="nv">LD_LIBRARY_PATH</span><span class="o">=</span><span class="nv">$LD_LIBRARY_PATH</span>:/home/jetson/uav/PX4-Autopilot/build_gazebo
-<span class="nb">export</span><span class="w"> </span><span class="nv">ROS_PACKAGE_PATH</span><span class="o">=</span><span class="nv">$ROS_PACKAGE_PATH</span>:/home/jetson/uav/PX4-Autopilot:/home/jetson/uav/PX4-Autopilot/Tools/sitl_gazebo
-
-<span class="nb">source</span><span class="w"> </span>/home/jetson/uav/PX4-Autopilot/Tools/setup_gazebo.bash<span class="w"> </span>/home/jetson/uav/PX4-Autopilot<span class="w"> </span>/home/jetson/uav/PX4-Autopilot/build/px4_sitl_default
-</code></pre></div></p>
-</li>
-</ul>
-<h2 id="control-stack-overview">Control Stack Overview</h2>
-<p>Now that the environment is prepared, the code stack can be installed inside the created workspace. Below is a tree view of all the packages included in the stack. The packages listed here are available in <a href="https://github.com/hardtekpt/M690B-Wiki/tree/master/drone_control_stack/src">this repository</a>.</p>
-<div class="highlight"><pre><span></span><code>src/
-├──<span class="w"> </span>drone_bringup
-├──<span class="w"> </span>drone_gazebo
-│<span class="w">   </span>├──<span class="w"> </span>drone_description
-│<span class="w">   </span>└──<span class="w"> </span>drone_worlds
-├──<span class="w"> </span>drone_launch
-└──<span class="w"> </span>drone_library
-<span class="w">    </span>├──<span class="w"> </span>drone_gimmicks_library
-<span class="w">    </span>├──<span class="w"> </span>drone_utils_cpp
-<span class="w">    </span>└──<span class="w"> </span>mavros_cpp
-</code></pre></div>
-<h3 id="simulation-flow">Simulation flow</h3>
-<pre class="mermaid"><code>graph TD
-  A(&lt;b&gt;simulator_bringup.launch&lt;/b&gt; &lt;br&gt; drone_launch) --&gt; B(&lt;b&gt;vehicle_bringup.launch&lt;/b&gt; &lt;br&gt; drone_launch);
-  A --&gt; C(&lt;b&gt;empty_world.launch&lt;/b&gt; &lt;br&gt; gazebo_ros);
-  A -. simulator_bringup_rviz.launch .-&gt; G(&lt;b&gt;rviz&lt;/b&gt; &lt;br&gt; rviz);
-  B --&gt; D(&lt;b&gt;single_vehicle_spawn.launch&lt;/b&gt; &lt;br&gt; drone_launch);
-  B --&gt; E(&lt;b&gt;px4.launch&lt;/b&gt; &lt;br&gt; mavros);
-  B --&gt; F(&lt;b&gt;drone_sim.launch&lt;/b&gt; &lt;br&gt; drone_bringup);</code></pre>
-<h3 id="real-mission-flow">Real mission flow</h3>
-<pre class="mermaid"><code>graph TD
-  A(&lt;b&gt;real_bringup_rviz.launch&lt;/b&gt; &lt;br&gt; drone_launch) --&gt; B(&lt;b&gt;px4.launch&lt;/b&gt; &lt;br&gt; mavros);
-  A --&gt; C(&lt;b&gt;drone_sim.launch&lt;/b&gt; &lt;br&gt; drone_bringup);
-  A --&gt; G(&lt;b&gt;rviz&lt;/b&gt; &lt;br&gt; rviz);</code></pre>
-<h2 id="ros-packages-overview">ROS Packages Overview</h2>
-<h3 id="drone_bringup">drone_bringup</h3>
-<p>The <code>drone_sim.launch</code> file loads the vehicle and main algorithm parameters and calls the ROS node that has the mission to be carried out.</p>
-<div class="highlight"><pre><span></span><code>src/drone_bringup/
-├──<span class="w"> </span>CMakeLists.txt
-├──<span class="w"> </span>config
-│<span class="w">   </span>└──<span class="w"> </span>simulation
-│<span class="w">       </span>└──<span class="w"> </span>iris
-│<span class="w">           </span>└──<span class="w"> </span>config.yaml
-├──<span class="w"> </span>launch
-│<span class="w">   </span>└──<span class="w"> </span>drone_sim.launch
-└──<span class="w"> </span>package.xml
-</code></pre></div>
-<h3 id="drone_description">drone_description</h3>
-<p>The <code>drone_description</code> package contains the <strong>Gazebo</strong> models for the vehicles used.</p>
-<div class="highlight"><pre><span></span><code>src/drone_gazebo/drone_description/
-├──<span class="w"> </span>CMakeLists.txt
-├──<span class="w"> </span>models
-│<span class="w">   </span>└──<span class="w"> </span>iris
-│<span class="w">       </span>├──<span class="w"> </span>iris.sdf.jinja
-│<span class="w">       </span>├──<span class="w"> </span>iris.urdf
-│<span class="w">       </span>├──<span class="w"> </span>meshes
-│<span class="w">       </span>│<span class="w">   </span>├──<span class="w"> </span>iris_prop_ccw.dae
-│<span class="w">       </span>│<span class="w">   </span>├──<span class="w"> </span>iris_prop_cw.dae
-│<span class="w">       </span>│<span class="w">   </span>└──<span class="w"> </span>iris.stl
-│<span class="w">       </span>└──<span class="w"> </span>model.config
-├──<span class="w"> </span>package.xml
-└──<span class="w"> </span>scripts
-<span class="w">    </span>├──<span class="w"> </span>jinja_gen.py
-<span class="w">    </span>├──<span class="w"> </span>names.py
-<span class="w">    </span>├──<span class="w"> </span>schema_download.bash
-<span class="w">    </span>├──<span class="w"> </span>substitution_args.py
-<span class="w">    </span>└──<span class="w"> </span>validate_sdf.bash
-</code></pre></div>
-<h3 id="drone_worlds">drone_worlds</h3>
-<p>The <code>drone_worlds</code> package contains the world files that can be used during simulations in <strong>Gzaebo</strong>.</p>
-<div class="highlight"><pre><span></span><code>src/drone_gazebo/drone_worlds/
-├──<span class="w"> </span>CMakeLists.txt
-├──<span class="w"> </span>package.xml
-└──<span class="w"> </span>worlds
-<span class="w">    </span>├──<span class="w"> </span>baylands.world
-<span class="w">    </span>├──<span class="w"> </span>boat.world
-<span class="w">    </span>├──<span class="w"> </span>empty.world
-<span class="w">    </span>├──<span class="w"> </span>hippocampus.world
-<span class="w">    </span>├──<span class="w"> </span>hitl_iris.world
-<span class="w">    </span>├──<span class="w"> </span>hitl_standard_vtol.world
-<span class="w">    </span>├──<span class="w"> </span>iris_irlock.world
-<span class="w">    </span>├──<span class="w"> </span>ksql_airport.world
-<span class="w">    </span>├──<span class="w"> </span>mcmillan_airfield.world
-<span class="w">    </span>├──<span class="w"> </span>ocean.world
-<span class="w">    </span>├──<span class="w"> </span>sonoma_raceway.world
-<span class="w">    </span>├──<span class="w"> </span>typhoon_h480.world
-<span class="w">    </span>├──<span class="w"> </span>uuv_bluerov2_heavy.world
-<span class="w">    </span>├──<span class="w"> </span>uuv_hippocampus.world
-<span class="w">    </span>├──<span class="w"> </span>warehouse.world
-<span class="w">    </span>├──<span class="w"> </span>windy.world
-<span class="w">    </span>└──<span class="w"> </span>yosemite.world
-</code></pre></div>
-<h3 id="drone_launch">drone_launch</h3>
-<p>The <code>drone_launch</code> package contains several launch files that are used to run simulations and to run missions with the real drone.</p>
-<div class="highlight"><pre><span></span><code>src/drone_launch/
-├──<span class="w"> </span>CMakeLists.txt
-├──<span class="w"> </span>launch
-│<span class="w">   </span>├──<span class="w"> </span>real_bringup_rviz.launch
-│<span class="w">   </span>├──<span class="w"> </span>rvizcfg.rviz
-│<span class="w">   </span>├──<span class="w"> </span>simulator_bringup.launch
-│<span class="w">   </span>├──<span class="w"> </span>simulator_bringup_rviz.launch
-│<span class="w">   </span>├──<span class="w"> </span>single_vehicle_spawn.launch
-│<span class="w">   </span>└──<span class="w"> </span>vehicle_bringup.launch
-└──<span class="w"> </span>package.xml
-</code></pre></div>
-<h3 id="drone_gimmicks_library">drone_gimmicks_library</h3>
-<p>The <code>drone_gimmicks_library</code> package contains some useful macros to reduce the complexity of some common ROS operations like getting parameters.</p>
-<div class="highlight"><pre><span></span><code>src/drone_library/drone_gimmicks_library/
-├──<span class="w"> </span>CMakeLists.txt
-├──<span class="w"> </span>include
-│<span class="w">   </span>└──<span class="w"> </span>drone_gimmicks_library
-│<span class="w">       </span>└──<span class="w"> </span>DroneGimmicks.h
-├──<span class="w"> </span>package.xml
-└──<span class="w"> </span>src
-<span class="w">    </span>└──<span class="w"> </span>DroneGimmicks.cpp
-</code></pre></div>
-<h3 id="drone_utils_cpp">drone_utils_cpp</h3>
-<p>The <code>drone_utils_cpp</code> package contains some useful functions while working with drones, like converting between different coordinate frames and normalizing thrust values.</p>
-<div class="highlight"><pre><span></span><code>src/drone_library/drone_utils_cpp/
-├──<span class="w"> </span>CMakeLists.txt
-├──<span class="w"> </span>doc
-│<span class="w">   </span>└──<span class="w"> </span>README.md
-├──<span class="w"> </span>include
-│<span class="w">   </span>└──<span class="w"> </span>drone_utils_cpp
-│<span class="w">       </span>├──<span class="w"> </span>DroneInfo.h
-│<span class="w">       </span>├──<span class="w"> </span>DroneStatus.h
-│<span class="w">       </span>└──<span class="w"> </span>Utils.h
-├──<span class="w"> </span>package.xml
-└──<span class="w"> </span>src
-<span class="w">    </span>└──<span class="w"> </span>Utils.cpp
-</code></pre></div>
-<h3 id="mavros_cpp">mavros_cpp</h3>
-<p>The <code>mavros_cpp</code> package contains the main class (<em>UAV</em>) which is used to control the drone as well as to get telemetry data.</p>
-<div class="highlight"><pre><span></span><code>src/drone_library/mavros_cpp/
-├──<span class="w"> </span>CMakeLists.txt
-├──<span class="w"> </span>doc
-│<span class="w">   </span>└──<span class="w"> </span>README.md
-├──<span class="w"> </span>include
-│<span class="w">   </span>└──<span class="w"> </span>mavros_cpp
-│<span class="w">       </span>├──<span class="w"> </span>Actuators.h
-│<span class="w">       </span>├──<span class="w"> </span>EKF.h
-│<span class="w">       </span>├──<span class="w"> </span>Sensors.h
-│<span class="w">       </span>└──<span class="w"> </span>UAV.h
-├──<span class="w"> </span>package.xml
-└──<span class="w"> </span>src
-<span class="w">    </span>├──<span class="w"> </span>offboard.cpp
-<span class="w">    </span>├──<span class="w"> </span>telemetry.cpp
-<span class="w">    </span>└──<span class="w"> </span>UAV.cpp
-</code></pre></div>
-<h2 id="simulation-example">Simulation example</h2>
-<p>After installing the code stack the provided <em>lissajous</em> example package can be executed in simulation. The <code>drone_sim.launch</code> file in the <code>drone_bringup</code> package should contain a call to the <code>lissajous</code> ROS node like so - <code>&lt;node pkg="lissajous" type="lissajous_node" name="lissajous" respawn="false" output="screen"/&gt;</code>.</p>
-<ol>
-<li>
-<p>Build the workspace
-    <div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>~/uav/uav_ws
-catkin_make
-</code></pre></div></p>
-</li>
-<li>
-<p>Source the provided bash script
-    <div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>~/uav
-<span class="nb">source</span><span class="w"> </span>setup.bash
-</code></pre></div></p>
-</li>
-<li>
-<p>Run the simulation
-    <div class="highlight"><pre><span></span><code>roslaunch<span class="w"> </span>drone_launch<span class="w"> </span>simulator_bringup.launch
-</code></pre></div></p>
-<p><img alt="Lissajous Gazebo Simulation" src="../../assets/simulation_lissajous.gif" title="Lissajous Gazebo Simulation" /></p>
-</li>
-</ol>
+<h1 id="software-setup">Software Setup</h1>
+<p>This section describes in detail all the procedures used to install and configure the software that runs on the vehicle's hardware components. Namely, the <a href="https://hardtekpt.github.io/M690B-Wiki/Software%20Setup/os_installation/">OS and ROS installation on the onboard computer</a>, the <a href="https://hardtekpt.github.io/M690B-Wiki/Software%20Setup/vrpn_and_mavros/">VRPN and MAVROS Setup</a>, the <a href="https://hardtekpt.github.io/M690B-Wiki/Software%20Setup/px4_configuration_checklist/">PX4 Configuration Checklist</a>, the <a href="https://hardtekpt.github.io/M690B-Wiki/Software%20Setup/drone_control_stack/">Drone Control Stack Setup</a> and some <a href="https://hardtekpt.github.io/M690B-Wiki/Software%20Setup/usefull_packages/">Usefull Packages</a>.</p>
+<pre class="mermaid"><code>graph LR
+  A(MOCAP) -- UDP --&gt; B(ROUTER)
+  B -- UDP --&gt; C(vrpn_client_ros)
+  subgraph Onboard Computer
+    C -- ROSTOPIC --- D(MAVROS)
+    G("Main Algorithm (Mission)") -- ROSTOPIC --- D
+  end
+  subgraph Flight Computer
+    D -- MAVLINK --- E(PX4-Autopilot)
+  end
+  B -- "UDP (gcs_url)" --- D
+  subgraph Companion Computer
+    F(QGroundControl)
+  end
+  F -- "UDP (fcu_url)" --- B
+  F-. "TELEM RADIO" .- E</code></pre>
 
 
 
@@ -1299,12 +1103,12 @@ catkin_make
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.tracking", "navigation.sections", "toc.follow", "navigation.top", "search.suggest", "search.highlight", "search.share", "navigation.footer", "toc.integrate", "navigation.indexes", "navigation.tabs"], "search": "../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"default": "latest", "provider": "mike"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.instant", "navigation.tracking", "navigation.sections", "toc.follow", "navigation.top", "search.suggest", "search.highlight", "search.share", "navigation.footer", "toc.integrate", "navigation.indexes", "navigation.tabs"], "search": "../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"default": "latest", "provider": "mike"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.81fa17fe.min.js"></script>
+      <script src="../assets/javascripts/bundle.81fa17fe.min.js"></script>
       
-        <script src="../../stylesheets/js.js"></script>
+        <script src="../stylesheets/js.js"></script>
       
     
   </body>

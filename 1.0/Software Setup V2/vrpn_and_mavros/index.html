@@ -10,7 +10,7 @@
         <meta name="author" content="Francisco Santos">
       
       
-        <link rel="canonical" href="https://hardtekpt.github.io/M690B-Wiki/1.0/Software%20Setup%20%28legacy%29/os_installation/">
+        <link rel="canonical" href="https://hardtekpt.github.io/M690B-Wiki/1.0/Software%20Setup%20V2/vrpn_and_mavros/">
       
       
       
@@ -20,7 +20,7 @@
     
     
       
-        <title>OS Installation and Setup - M690B Wiki</title>
+        <title>VRPN and MAVROS Setup - M690B Wiki</title>
       
     
     
@@ -77,7 +77,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#os-installation-and-setup" class="md-skip">
+        <a href="#vrpn-and-mavros-setup" class="md-skip">
           Skip to content
         </a>
       
@@ -115,7 +115,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              OS Installation and Setup
+              VRPN and MAVROS Setup
             
           </span>
         </div>
@@ -643,7 +643,7 @@
         
   
   <span class="md-ellipsis">
-    OS installation and Setup
+    OS and ROS installation
   </span>
   
 
@@ -659,11 +659,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Software Setup/ros_installation.md" class="md-nav__link">
+      <a href="../../Software Setup/vrpn_and_mavros.md" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    ROS and MAVROS installation
+    VRPN and MAVROS setup
   </span>
   
 
@@ -1042,34 +1042,46 @@
   
 
 
-<h1 id="os-installation-and-setup">OS Installation and Setup</h1>
-<p>This guide provides installation instructions for the <strong>JetPack</strong> software which is used as an OS for the onboard computer. The following steps describe how to install the version <em>5.1.1</em> of <strong>JetPack</strong> on the onboard computer.  </p>
-<h2 id="1-sdk-manager">1. SDK Manager</h2>
-<p>The installation of the operating system should be made using the <a href="https://docs.nvidia.com/sdk-manager/index.html"><strong>NVIDIA SDK Manager</strong></a> running on a computer with <em>Ubuntu 18.04</em> or <em>Ubuntu 20.04</em>. For reference, the installation was made using a machine with <em>Ubuntu 18.04</em> and the SDK Manager version <em>1.9.1.10899</em>. This will allow us to install the OS onto an NVME SSD instead of using a micro-SD card.</p>
-<h2 id="2-os-installation">2. OS Installation</h2>
-<p>The SDK Manager can then be used to flash the <em>JetPack 5.1.1 (rev. 1)</em> OS onto the board as shown in the following images. Before flashing there is an option to select which storage solution to use for the OS as well as the ability to configure a user so as not to require a physical connection to the board on first boot to finish the OS installation.</p>
-<p><img alt="SDK Manager Setup" src="../../assets/sdk_manager_1.png" title="SDK Manager Setup" />
-<img alt="Target Components Selection" src="../../assets/sdk_manager_2.png" title="Target Components Selection" /></p>
-<h2 id="3-initial-setup">3. Initial Setup</h2>
-<p>After the first boot it is recommended to update the installed packages and also to install some usefull additional packages:</p>
-<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt<span class="w"> </span>update
-sudo<span class="w"> </span>apt<span class="w"> </span>upgrade
-sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>nano<span class="w"> </span>tmux<span class="w"> </span>python3-pip
+<h1 id="vrpn-and-mavros-setup">VRPN and MAVROS Setup</h1>
+<h2 id="vrpn">VRPN</h2>
+<p>In order to access data from the <strong>Optitrack</strong> MOCAP system the <a href="http://wiki.ros.org/vrpn_client_ros">vrpn_client_ros</a> package was used.</p>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>ros-noetic-vrpn-client-ros
 </code></pre></div>
-<p>Following that, <em>jtop</em> can be installed using pip. <em>jtop</em> is a tool that shows detailded stats and information about the nvidia board where it is running:</p>
-<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>pip3<span class="w"> </span>install<span class="w"> </span>-U<span class="w"> </span>jetson-stats
+<p>This package listens on the IP of the computer running the MOCAP sosftware and introduces pose information of the captured rigid bodies into ros topics. To do this a launch file is provided:</p>
+<div class="highlight"><pre><span></span><code>roslaunch<span class="w"> </span>vrpn_client_ros<span class="w"> </span>sample.launch
 </code></pre></div>
-<h2 id="4-compiling-opencv">4. Compiling OpenCV</h2>
-<p>Even though OpenCV comes installed with the <em>JetPack</em> OS, it does not take advantage of the GPU. To solve this, the script from <a href="https://github.com/mdegans/nano_build_opencv">mdegans</a> was used and the version <strong>4.6.0</strong> of OpenCV can be installed:</p>
-<div class="highlight"><pre><span></span><code>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/mdegans/nano_build_opencv.git
-<span class="nb">cd</span><span class="w"> </span>nano_build_opencv
-chmod<span class="w"> </span>+x<span class="w"> </span>build_opencv.sh
-./build_opencv.sh<span class="w"> </span><span class="m">4</span>.6.0
+<p>In this launch file, the available parameters were configured as such (The IP used corresponds to the MOCAP system of the 8th floor at ISR-Alameda):</p>
+<div class="highlight"><pre><span></span><code><span class="nt">server</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">192.168.0.2</span>
+<span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">3883</span>
+<span class="nt">update_frequency</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">30.0</span>
+<span class="nt">frame_id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">world</span>
+<span class="nt">use_server_time</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
+<span class="nt">broadcast_tf</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="nt">refresh_tracker_frequency</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.2</span>
 </code></pre></div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>This process takes a while. On the <strong>NVIDIA Jetson Orin Nano</strong> it takes approximately 2 hours.</p>
-</div>
+<h2 id="mavros">MAVROS</h2>
+<p>To communicate with the flight computer (running the <strong>PX4</strong> autopilot) using the <strong>MAVLink</strong> protocol through ROS, the <a href="http://wiki.ros.org/mavros"><strong>MAVROS</strong></a> package was used. It is assumed that the flight computer is connected to the onboard computer through USB.</p>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>ros-noetic-mavros
+sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>ros-noetic-mavros-extras
+<span class="nb">cd</span><span class="w"> </span>/opt/ros/noetic/lib/mavros
+sudo<span class="w"> </span>./install_geographiclib_datasets.sh<span class="w"> </span>
+</code></pre></div>
+<p>Additionally, to allow access to the USB ports for serial communication with the flight computer, these commands are needed:</p>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>gpasswd<span class="w"> </span>-a<span class="w"> </span><span class="nv">$USER</span><span class="w"> </span>dialout
+sudo<span class="w"> </span>reboot<span class="w"> </span>now
+</code></pre></div>
+<p>The package can now be tested by running <code>roslaunch mavros px4.launch</code> and verifying that data is being published in the available ROS topics (<code>rostopic list</code> and <code>rostopic echo ...</code>).</p>
+<p>The <strong>MAVROS</strong> package also allows to redirect the <strong>MAVLink</strong> communications to another computer, where <a href="http://qgroundcontrol.com/">QGroundControl</a> can be used for example. To do this, an option can be included when calling the launch file - <code>roslaunch mavros px4.launch fcu_url:=/dev/ttyACM0:57600 gcs_url:=udp://@${GCS_IP}:${GCS_PORT}</code>, where <em>fcu_url</em> is where the flight computer is connected, <em>GCS_IP</em> is the IP of the computer that wants to access the <strong>MAVLink</strong> communications and <em>GCS_Port</em> is an arbitrary port.</p>
+<h3 id="mavros-example">MAVROS Example</h3>
+<ol>
+<li>Onboard computer IP: 192.168.1.126; </li>
+<li>Flight computer connected to onboard computer through USB (/dev/ttyACM0);</li>
+<li>Other computer IP: 192.168.1.118;</li>
+<li>Run <code>roslaunch mavros px4.launch fcu_url:=/dev/ttyACM0:57600 gcs_url:=udp://@192.168.1.118:15001</code> on the onboard computer;</li>
+<li>Run <code>roslaunch mavros px4.launch fcu_url:=udp://:15001@ gcs_url:=udp://@localhost:15002</code> on the other computer;</li>
+<li><code>rostopic list</code> and <code>rostopic echo ...</code> on the other computer will show the data from the flight computer;</li>
+<li>QGroundControl can be used on the other computer on port 15002.</li>
+</ol>
 
 
 
