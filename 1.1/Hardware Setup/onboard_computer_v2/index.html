@@ -10,7 +10,7 @@
         <meta name="author" content="Francisco Santos">
       
       
-        <link rel="canonical" href="https://hardtekpt.github.io/M690B-Wiki/1.1/Software%20Setup%20V10/px4_configuration_checklist/">
+        <link rel="canonical" href="https://hardtekpt.github.io/M690B-Wiki/1.1/Hardware%20Setup/onboard_computer_v2/">
       
       
       
@@ -20,7 +20,7 @@
     
     
       
-        <title>PX4 Configuration Checklist - M690B Wiki</title>
+        <title>Onboard Computer - M690B Wiki</title>
       
     
     
@@ -77,7 +77,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#px4-configuration-checklist" class="md-skip">
+        <a href="#onboard-computer" class="md-skip">
           Skip to content
         </a>
       
@@ -115,7 +115,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              PX4 Configuration Checklist
+              Onboard Computer
             
           </span>
         </div>
@@ -474,7 +474,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../Hardware%20Setup/" class="md-nav__link ">
+            <a href="../" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -506,7 +506,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Hardware%20Setup/onboard_computer/" class="md-nav__link">
+      <a href="../onboard_computer/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -526,7 +526,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Hardware%20Setup/flight_computer/" class="md-nav__link">
+      <a href="../flight_computer/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -546,7 +546,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Hardware%20Setup/radio_and_receiver/" class="md-nav__link">
+      <a href="../radio_and_receiver/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -578,8 +578,6 @@
       
         
           
-        
-      
         
       
         
@@ -645,7 +643,7 @@
         
   
   <span class="md-ellipsis">
-    OS installation and Setup
+    OS and ROS installation
   </span>
   
 
@@ -661,11 +659,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Software%20Setup/ros_installation/" class="md-nav__link">
+      <a href="../../Software%20Setup/vrpn_and_mavros/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    ROS and MAVROS installation
+    VRPN and MAVROS setup
   </span>
   
 
@@ -726,26 +724,6 @@
   
   <span class="md-ellipsis">
     Usefull Packages
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../Software%20Setup/drone_console/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Drone Console
   </span>
   
 
@@ -1064,20 +1042,9 @@
   
 
 
-<h1 id="px4-configuration-checklist">PX4 Configuration Checklist</h1>
-<p>After assembling the vehicle, the <a href="https://docs.px4.io/main/en/"><strong>PX4</strong> </a> autopilot running on the flight computer must be configured. Here is a general checklist of what needs to be done before the first flight. All of these configurations can be done using the <a href="http://qgroundcontrol.com/"><strong>QGroundControl</strong></a> application. It should be noted that this checklist is based on the PX4 documentation and more detailed instructions are available <a href="https://docs.px4.io/main/en/config/">there</a>.</p>
-<ol>
-<li>Sensor orientation on vehicle;</li>
-<li>Compass calibration;</li>
-<li>Gyroscope calibration;</li>
-<li>Accelerometer calibration;</li>
-<li>Radio setup (button mapping and calibration);</li>
-<li>Flight mode configuration (map radio button for manual/offboard mode change and safety hold/kill switch button);</li>
-<li>Battery (configure battery parameters for charge estimation);</li>
-<li>Configure failsafes;</li>
-<li>Actuators (configure geometry of motors and verify correct direction of spinning);</li>
-</ol>
-<p>After this process the vehicle should be ready for manual flight and it is now a good idea to check if the PID controllers' gains need to be adjusted.</p>
+<h1 id="onboard-computer">Onboard Computer</h1>
+<p>In a second iteration of the vehicle, the onboard computer was switched to an <a href="https://developer.nvidia.com/embedded/learn/get-started-jetson-orin-nano-devkit"><strong>NVIDIA Jetson Orin Nano</strong></a> which already comes with its own carrier board (developed by <em>NVIDIA</em>). The specific model used is the <strong>8GB Developer Kit</strong> version. Besides switching to a newer version of the board (Orin vs Xavier), the <strong>Orin Nano</strong> also includes some GPIO pins which can be used to directly connect to the flight computer without the need for an FTDI adaptor.</p>
+<p><img alt="Onboard Computer" src="../../assets/onboard_computer_orin_nano.png" title="Onboard Computer" /></p>
 
 
 
