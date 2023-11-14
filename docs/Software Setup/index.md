@@ -3,9 +3,9 @@ hide:
   - footer
 ---
 
-# Software Setup V2
+# Software Setup
 
-This section describes in detail all the procedures used to install and configure the software that runs on the vehicle's hardware components. 
+This section describes in detail all the procedures used to install and configure the software that runs on the vehicle's hardware components. Namely, the [OS installation and Setup](os_installation), the [ROS and MAVROS installation](ros_installation), the [PX4 Configuration Checklist](px4_configuration_checklist), the [Drone Control Stack Setup](drone_control_stack) and the [Drone Console](drone_console).
 
 ``` mermaid
 graph LR

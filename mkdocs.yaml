@@ -123,3 +123,5 @@ nav:
     - 29-09-2023: 'Mission Logs/29-09-2023.md'
     - 13-10-2023: 'Mission Logs/13-10-2023.md'
   - Roadmap: 'roadmap.md'
+  - Reference: 
+    - Generating the Documentation: 'generating_docs.md'
