@@ -111,47 +111,47 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://hardtekpt.github.io/M690B-Wiki/1.0/Software%20Setup/ros_installation/</loc>
-         <lastmod>2023-11-14</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
          <loc>https://hardtekpt.github.io/M690B-Wiki/1.0/Software%20Setup/usefull_packages/</loc>
          <lastmod>2023-11-14</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://hardtekpt.github.io/M690B-Wiki/1.0/Software%20Setup%20V2/</loc>
+         <loc>https://hardtekpt.github.io/M690B-Wiki/1.0/Software%20Setup/vrpn_and_mavros/</loc>
          <lastmod>2023-11-14</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://hardtekpt.github.io/M690B-Wiki/1.0/Software%20Setup%20V2/drone_console/</loc>
+         <loc>https://hardtekpt.github.io/M690B-Wiki/1.0/Software%20Setup%20V11/</loc>
          <lastmod>2023-11-14</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://hardtekpt.github.io/M690B-Wiki/1.0/Software%20Setup%20V2/drone_control_stack/</loc>
+         <loc>https://hardtekpt.github.io/M690B-Wiki/1.0/Software%20Setup%20V11/drone_console/</loc>
          <lastmod>2023-11-14</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://hardtekpt.github.io/M690B-Wiki/1.0/Software%20Setup%20V2/os_installation/</loc>
+         <loc>https://hardtekpt.github.io/M690B-Wiki/1.0/Software%20Setup%20V11/drone_control_stack/</loc>
          <lastmod>2023-11-14</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://hardtekpt.github.io/M690B-Wiki/1.0/Software%20Setup%20V2/px4_configuration_checklist/</loc>
+         <loc>https://hardtekpt.github.io/M690B-Wiki/1.0/Software%20Setup%20V11/os_installation/</loc>
          <lastmod>2023-11-14</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://hardtekpt.github.io/M690B-Wiki/1.0/Software%20Setup%20V2/usefull_packages/</loc>
+         <loc>https://hardtekpt.github.io/M690B-Wiki/1.0/Software%20Setup%20V11/px4_configuration_checklist/</loc>
          <lastmod>2023-11-14</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://hardtekpt.github.io/M690B-Wiki/1.0/Software%20Setup%20V2/vrpn_and_mavros/</loc>
+         <loc>https://hardtekpt.github.io/M690B-Wiki/1.0/Software%20Setup%20V11/ros_installation/</loc>
+         <lastmod>2023-11-14</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://hardtekpt.github.io/M690B-Wiki/1.0/Software%20Setup%20V11/usefull_packages/</loc>
          <lastmod>2023-11-14</lastmod>
          <changefreq>daily</changefreq>
     </url>
