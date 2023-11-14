@@ -16,7 +16,7 @@
         <link rel="prev" href="../">
       
       
-        <link rel="next" href="../ros_installation/">
+        <link rel="next" href="../vrpn_and_mavros/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -81,7 +81,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#os-installation-and-setup" class="md-skip">
+        <a href="#os-and-ros-installation" class="md-skip">
           Skip to content
         </a>
       
@@ -704,22 +704,36 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#2-os-installation" class="md-nav__link">
-    2. OS Installation
+  <a href="#2-board-support-package-installation" class="md-nav__link">
+    2. Board Support Package Installation
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#3-initial-setup" class="md-nav__link">
-    3. Initial Setup
+  <a href="#3-first-boot" class="md-nav__link">
+    3. First Boot
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#4-compiling-opencv" class="md-nav__link">
-    4. Compiling OpenCV
+  <a href="#4-booting-from-the-nvme-ssd" class="md-nav__link">
+    4. Booting from the NVMe SSD
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-installing-jetpack-sdk-components" class="md-nav__link">
+    5. Installing JetPack SDK Components
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-installing-ros" class="md-nav__link">
+    6. Installing ROS
   </a>
   
 </li>
@@ -739,11 +753,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../ros_installation/" class="md-nav__link">
+      <a href="../vrpn_and_mavros/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    ROS and MAVROS installation
+    VRPN and MAVROS setup
   </span>
   
 
@@ -1142,34 +1156,71 @@
   
 
 
-<h1 id="os-installation-and-setup">OS Installation and Setup</h1>
-<p>This guide provides installation instructions for the <strong>JetPack</strong> software which is used as an OS for the onboard computer. The following steps describe how to install the version <em>5.1.1</em> of <strong>JetPack</strong> on the onboard computer.  </p>
+<h1 id="os-and-ros-installation">OS and ROS Installation</h1>
+<p>At the date of writing the most recent version of the <strong>JetPack</strong> software suppoted by the <strong>NVIDIA Jetson Xavier NX</strong> module and the <strong>Connect Tech Photon</strong> carrier board is version <em>5.1.1</em>. The following steps describe how to install this <strong>JetPack</strong> version on the onboard computer.  </p>
 <h2 id="1-sdk-manager">1. SDK Manager</h2>
-<p>The installation of the operating system should be made using the <a href="https://docs.nvidia.com/sdk-manager/index.html"><strong>NVIDIA SDK Manager</strong></a> running on a computer with <em>Ubuntu 18.04</em> or <em>Ubuntu 20.04</em>. For reference, the installation was made using a machine with <em>Ubuntu 18.04</em> and the SDK Manager version <em>1.9.1.10899</em>. This will allow us to install the OS onto an NVME SSD instead of using a micro-SD card.</p>
-<h2 id="2-os-installation">2. OS Installation</h2>
-<p>The SDK Manager can then be used to flash the <em>JetPack 5.1.1 (rev. 1)</em> OS onto the board as shown in the following images. Before flashing there is an option to select which storage solution to use for the OS as well as the ability to configure a user so as not to require a physical connection to the board on first boot to finish the OS installation.</p>
+<p>The installation of the operating system must be made using the <a href="https://docs.nvidia.com/sdk-manager/index.html"><strong>NVIDIA SDK Manager</strong></a> running on a computer with <em>Ubuntu 18.04</em> or <em>Ubuntu 20.04</em>. For reference, the installation was made using a machine with <em>Ubuntu 18.04</em> and the SDK Manager version <em>1.9.1.10899</em>.</p>
+<h2 id="2-board-support-package-installation">2. Board Support Package Installation</h2>
+<p>The carrier board manufactor provides a Board Support Package (BSP) that ensures the correct functioning of the OS with the carrier board. To do this, clear instructions are provided <a href="https://connecttech.com/resource-center/kdb373/">here</a>. During this process, the <strong>Jetson Xavier NX modules</strong> was selected as the target hardware and the <em>JetPack 5.1.1 (rev. 1)</em> was selected as the target OS. Additionally, the BSP version <em>NX L4T r35.3.1 BSP</em> was downloaded from the manufactor <a href="https://connecttech.com/resource-center/l4t-board-support-packages/">resource center</a>. Given that the SDK Manager version used in the guide is outdated, the images below show the board, OS and target components selection.</p>
 <p><img alt="SDK Manager Setup" src="../../assets/sdk_manager_1.png" title="SDK Manager Setup" />
 <img alt="Target Components Selection" src="../../assets/sdk_manager_2.png" title="Target Components Selection" /></p>
-<h2 id="3-initial-setup">3. Initial Setup</h2>
-<p>After the first boot it is recommended to update the installed packages and also to install some usefull additional packages:</p>
-<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt<span class="w"> </span>update
-sudo<span class="w"> </span>apt<span class="w"> </span>upgrade
-sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>nano<span class="w"> </span>tmux<span class="w"> </span>python3-pip
+<p>In step 11 of the guide, the following steps were taken to connect the onboard computer to the machine running the SDK Manager:</p>
+<ol>
+<li>Connect the Power Cable of the +12V Power Supply into the Barrel Jack;</li>
+<li>Plug the AC cable on the +12V Power Supply into the wall socket;</li>
+<li>Press the switch <em>SW2</em> during 10 seconds to enter forced recovery mode;</li>
+<li>Press the switch <em>SW2</em> once to reset the board;</li>
+<li>Plug in a USB-A to micro USB-B cable from the host machine to the OTG USB port located below the ethernet port on the carrier board;</li>
+<li>Verify the board is connected by running the <code>lsusb</code> on the host machine.</li>
+</ol>
+<h2 id="3-first-boot">3. First Boot</h2>
+<p>After the OS installation, the first boot must be made by connecting a monitor and peripherals to the board so as to complete the initial setup and create a user. SSH is not available before creating a user and accepting the license terms. For reference, the username "jetson" was created.</p>
+<h2 id="4-booting-from-the-nvme-ssd">4. Booting from the NVMe SSD</h2>
+<p>Now that the OS is installed and working the, the NVMe SSD can be configured as the boot device. To do this it is first necessary to move the root filesystem to the drive. The following steps are according to the <a href="https://github.com/jetsonhacks/rootOnNVMe">rootOnNVMe</a> repository.</p>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/jetsonhacks/rootOnNVMe
+<span class="nb">cd</span><span class="w"> </span>rootOnNVMe
+./copy-rootfs-ssd.sh
+./setup-service.sh
+sudo<span class="w"> </span>reboot<span class="w"> </span>now
 </code></pre></div>
-<p>Following that, <em>jtop</em> can be installed using pip. <em>jtop</em> is a tool that shows detailded stats and information about the nvidia board where it is running:</p>
-<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>pip3<span class="w"> </span>install<span class="w"> </span>-U<span class="w"> </span>jetson-stats
-</code></pre></div>
-<h2 id="4-compiling-opencv">4. Compiling OpenCV</h2>
-<p>Even though OpenCV comes installed with the <em>JetPack</em> OS, it does not take advantage of the GPU. To solve this, the script from <a href="https://github.com/mdegans/nano_build_opencv">mdegans</a> was used and the version <strong>4.6.0</strong> of OpenCV can be installed:</p>
-<div class="highlight"><pre><span></span><code>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/mdegans/nano_build_opencv.git
-<span class="nb">cd</span><span class="w"> </span>nano_build_opencv
-chmod<span class="w"> </span>+x<span class="w"> </span>build_opencv.sh
-./build_opencv.sh<span class="w"> </span><span class="m">4</span>.6.0
-</code></pre></div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>This process takes a while. On the <strong>NVIDIA Jetson Orin Nano</strong> it takes approximately 2 hours.</p>
-</div>
+<h2 id="5-installing-jetpack-sdk-components">5. Installing JetPack SDK Components</h2>
+<p>Finally, it is possible to install several JetPack SDK Compnents. The are useful for instance for running conatiners using Docker. To do this, <a href="https://connecttech.com/resource-center/kdb374/">this guide</a> from the carrier board manufactor was followed.</p>
+<p>Additionally, after the installation of all the selected componets, docker was configured to run wihtout root previleges using the command <code>sudo usermod -aG docker $USER</code>, after which it is required to log out and log back in.</p>
+<h2 id="6-installing-ros">6. Installing ROS</h2>
+<p>The version of the installed OS is based on <em>Ubuntu 20.04</em> for which the latest version of ROS1 is <em>ROS Noetic</em>. To install it, the official guide in the <a href="http://wiki.ros.org/noetic/Installation/Ubuntu">ROS wiki</a> was followed.</p>
+<ol>
+<li>
+<p>Setup sources.list
+    <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>sh<span class="w"> </span>-c<span class="w"> </span><span class="s1">&#39;echo &quot;deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main&quot; &gt; /etc/apt/sources.list.d/ros-latest.list&#39;</span>
+</code></pre></div></p>
+</li>
+<li>
+<p>Setup keys
+    <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>curl
+curl<span class="w"> </span>-s<span class="w"> </span>https://raw.githubusercontent.com/ros/rosdistro/master/ros.asc<span class="w"> </span><span class="p">|</span><span class="w"> </span>sudo<span class="w"> </span>apt-key<span class="w"> </span>add<span class="w"> </span>-
+sudo<span class="w"> </span>apt<span class="w"> </span>update
+</code></pre></div></p>
+</li>
+<li>
+<p>Installation (the desktop-full variant was selected for this specific installation)
+    <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>ros-noetic-desktop-full
+</code></pre></div></p>
+</li>
+<li>
+<p>Environment setup
+    <div class="highlight"><pre><span></span><code><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;source /opt/ros/noetic/setup.bash&quot;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>~/.bashrc
+<span class="nb">source</span><span class="w"> </span>~/.bashrc
+</code></pre></div></p>
+</li>
+<li>
+<p>Dependencies for building packages
+    <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>python3-rosdep<span class="w"> </span>python3-rosinstall<span class="w"> </span>python3-rosinstall-generator<span class="w"> </span>python3-wstool<span class="w"> </span>build-essential
+
+sudo<span class="w"> </span>rosdep<span class="w"> </span>init
+rosdep<span class="w"> </span>update
+</code></pre></div></p>
+</li>
+</ol>
 
 
 
@@ -1201,7 +1252,7 @@ chmod<span class="w"> </span>+x<span class="w"> </span>build_opencv.sh
       <nav class="md-footer__inner md-grid" aria-label="Footer" hidden>
         
           
-          <a href="../" class="md-footer__link md-footer__link--prev" aria-label="Previous: Software Setup V2">
+          <a href="../" class="md-footer__link md-footer__link--prev" aria-label="Previous: Software Setup">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
@@ -1211,20 +1262,20 @@ chmod<span class="w"> </span>+x<span class="w"> </span>build_opencv.sh
                 Previous
               </span>
               <div class="md-ellipsis">
-                Software Setup V2
+                Software Setup
               </div>
             </div>
           </a>
         
         
           
-          <a href="../ros_installation/" class="md-footer__link md-footer__link--next" aria-label="Next: ROS and MAVROS installation">
+          <a href="../vrpn_and_mavros/" class="md-footer__link md-footer__link--next" aria-label="Next: VRPN and MAVROS setup">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                ROS and MAVROS installation
+                VRPN and MAVROS setup
               </div>
             </div>
             <div class="md-footer__button md-icon">
