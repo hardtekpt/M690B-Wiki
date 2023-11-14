@@ -4,11 +4,17 @@ hide:
 ---
 # Generating Documentation
 
-This section is a reminder on how to update this documentation. Start by installing the required python modules using the `requirements.txt` file located in the docs folder:
+This section is a reminder on how to update this documentation. On top of **MKdocs**, [**Mike**](https://github.com/jimporter/mike) is being used as a version system. 
+
+## Prerequesites
+
+Start by installing the required python modules using the `requirements.txt` file located in the docs folder:
 
 ```bash
     python3 -m pip install -r requirements.txt
 ```
+
+## Compiling and Deploying
 
 Then to build the documentation for a specific version use:
 
