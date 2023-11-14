@@ -110,7 +110,7 @@ nav:
       - PX4 Configuration Checklist: 'Software Setup/px4_configuration_checklist.md'
       - Drone Control Stack Setup: 'Software Setup/drone_control_stack.md'
       - Usefull Packages: 'Software Setup/usefull_packages.md'
-    # - Drone Console: 'Software Setup/drone_console.md'
+      - Drone Console: 'Software Setup/drone_console.md'
   - Known Issues: 'known_issues.md'
   - Mission Logs:
     - 'Mission Logs/index.md'

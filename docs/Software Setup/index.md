@@ -3,10 +3,9 @@ hide:
   - footer
 ---
 
-# Software Setup
+# Software Setup V2
 
-This section describes in detail all the procedures used to install and configure the software that runs on the vehicle's hardware components. Namely, the [OS and ROS installation on the onboard computer](https://hardtekpt.github.io/M690B-Wiki/Software%20Setup/os_installation/), the [VRPN and MAVROS Setup](https://hardtekpt.github.io/M690B-Wiki/Software%20Setup/vrpn_and_mavros/), the [PX4 Configuration Checklist](https://hardtekpt.github.io/M690B-Wiki/Software%20Setup/px4_configuration_checklist/), the [Drone Control Stack Setup](https://hardtekpt.github.io/M690B-Wiki/Software%20Setup/drone_control_stack/) and some [Usefull Packages](https://hardtekpt.github.io/M690B-Wiki/Software%20Setup/usefull_packages/).
-
+This section describes in detail all the procedures used to install and configure the software that runs on the vehicle's hardware components. 
 
 ``` mermaid
 graph LR
