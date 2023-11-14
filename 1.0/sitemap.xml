@@ -2,142 +2,162 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://hardtekpt.github.io/M690B-Wiki/1.0/</loc>
-         <lastmod>2023-11-09</lastmod>
+         <lastmod>2023-11-14</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://hardtekpt.github.io/M690B-Wiki/1.0/known_issues/</loc>
-         <lastmod>2023-11-09</lastmod>
+         <lastmod>2023-11-14</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://hardtekpt.github.io/M690B-Wiki/1.0/roadmap/</loc>
-         <lastmod>2023-11-09</lastmod>
+         <lastmod>2023-11-14</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://hardtekpt.github.io/M690B-Wiki/1.0/Hardware%20Setup/</loc>
-         <lastmod>2023-11-09</lastmod>
+         <lastmod>2023-11-14</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://hardtekpt.github.io/M690B-Wiki/1.0/Hardware%20Setup/flight_computer/</loc>
-         <lastmod>2023-11-09</lastmod>
+         <lastmod>2023-11-14</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://hardtekpt.github.io/M690B-Wiki/1.0/Hardware%20Setup/onboard_computer_v1/</loc>
-         <lastmod>2023-11-09</lastmod>
+         <loc>https://hardtekpt.github.io/M690B-Wiki/1.0/Hardware%20Setup/onboard_computer/</loc>
+         <lastmod>2023-11-14</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://hardtekpt.github.io/M690B-Wiki/1.0/Hardware%20Setup/onboard_computer_v2/</loc>
-         <lastmod>2023-11-09</lastmod>
+         <loc>https://hardtekpt.github.io/M690B-Wiki/1.0/Hardware%20Setup/onboard_computer_v1_legacy/</loc>
+         <lastmod>2023-11-14</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://hardtekpt.github.io/M690B-Wiki/1.0/Hardware%20Setup/radio_and_receiver/</loc>
-         <lastmod>2023-11-09</lastmod>
+         <lastmod>2023-11-14</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://hardtekpt.github.io/M690B-Wiki/1.0/Mission%20Logs/</loc>
-         <lastmod>2023-11-09</lastmod>
+         <lastmod>2023-11-14</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://hardtekpt.github.io/M690B-Wiki/1.0/Mission%20Logs/05-07-2023/</loc>
-         <lastmod>2023-11-09</lastmod>
+         <lastmod>2023-11-14</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://hardtekpt.github.io/M690B-Wiki/1.0/Mission%20Logs/13-07-2023/</loc>
-         <lastmod>2023-11-09</lastmod>
+         <lastmod>2023-11-14</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://hardtekpt.github.io/M690B-Wiki/1.0/Mission%20Logs/13-10-2023/</loc>
-         <lastmod>2023-11-09</lastmod>
+         <lastmod>2023-11-14</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://hardtekpt.github.io/M690B-Wiki/1.0/Mission%20Logs/20-07-2023/</loc>
-         <lastmod>2023-11-09</lastmod>
+         <lastmod>2023-11-14</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://hardtekpt.github.io/M690B-Wiki/1.0/Mission%20Logs/22-09-2023/</loc>
-         <lastmod>2023-11-09</lastmod>
+         <lastmod>2023-11-14</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://hardtekpt.github.io/M690B-Wiki/1.0/Mission%20Logs/27-07-2023/</loc>
-         <lastmod>2023-11-09</lastmod>
+         <lastmod>2023-11-14</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://hardtekpt.github.io/M690B-Wiki/1.0/Mission%20Logs/28-07-2023/</loc>
-         <lastmod>2023-11-09</lastmod>
+         <lastmod>2023-11-14</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://hardtekpt.github.io/M690B-Wiki/1.0/Mission%20Logs/29-09-2023/</loc>
-         <lastmod>2023-11-09</lastmod>
+         <lastmod>2023-11-14</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://hardtekpt.github.io/M690B-Wiki/1.0/Software%20Setup/</loc>
-         <lastmod>2023-11-09</lastmod>
+         <lastmod>2023-11-14</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://hardtekpt.github.io/M690B-Wiki/1.0/Software%20Setup/drone_console/</loc>
-         <lastmod>2023-11-09</lastmod>
+         <lastmod>2023-11-14</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://hardtekpt.github.io/M690B-Wiki/1.0/Software%20Setup/drone_control_stack/</loc>
-         <lastmod>2023-11-09</lastmod>
+         <lastmod>2023-11-14</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://hardtekpt.github.io/M690B-Wiki/1.0/Software%20Setup/os_installation/</loc>
-         <lastmod>2023-11-09</lastmod>
+         <lastmod>2023-11-14</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://hardtekpt.github.io/M690B-Wiki/1.0/Software%20Setup/px4_configuration_checklist/</loc>
-         <lastmod>2023-11-09</lastmod>
+         <lastmod>2023-11-14</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://hardtekpt.github.io/M690B-Wiki/1.0/Software%20Setup/ros_installation/</loc>
+         <lastmod>2023-11-14</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://hardtekpt.github.io/M690B-Wiki/1.0/Software%20Setup/usefull_packages/</loc>
-         <lastmod>2023-11-09</lastmod>
+         <lastmod>2023-11-14</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://hardtekpt.github.io/M690B-Wiki/1.0/Software%20Setup/vrpn_and_mavros/</loc>
-         <lastmod>2023-11-09</lastmod>
+         <loc>https://hardtekpt.github.io/M690B-Wiki/1.0/Software%20Setup%20%28legacy%29/</loc>
+         <lastmod>2023-11-14</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://hardtekpt.github.io/M690B-Wiki/1.0/Software%20Setup%20V2/</loc>
-         <lastmod>2023-11-09</lastmod>
+         <loc>https://hardtekpt.github.io/M690B-Wiki/1.0/Software%20Setup%20%28legacy%29/drone_console/</loc>
+         <lastmod>2023-11-14</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://hardtekpt.github.io/M690B-Wiki/1.0/Software%20Setup%20V2/os_installation/</loc>
-         <lastmod>2023-11-09</lastmod>
+         <loc>https://hardtekpt.github.io/M690B-Wiki/1.0/Software%20Setup%20%28legacy%29/drone_control_stack/</loc>
+         <lastmod>2023-11-14</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://hardtekpt.github.io/M690B-Wiki/1.0/Software%20Setup%20V2/ros_installation/</loc>
-         <lastmod>2023-11-09</lastmod>
+         <loc>https://hardtekpt.github.io/M690B-Wiki/1.0/Software%20Setup%20%28legacy%29/os_installation/</loc>
+         <lastmod>2023-11-14</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://hardtekpt.github.io/M690B-Wiki/1.0/Software%20Setup%20%28legacy%29/px4_configuration_checklist/</loc>
+         <lastmod>2023-11-14</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://hardtekpt.github.io/M690B-Wiki/1.0/Software%20Setup%20%28legacy%29/usefull_packages/</loc>
+         <lastmod>2023-11-14</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://hardtekpt.github.io/M690B-Wiki/1.0/Software%20Setup%20%28legacy%29/vrpn_and_mavros/</loc>
+         <lastmod>2023-11-14</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://hardtekpt.github.io/M690B-Wiki/1.0/Vehicle%20Setup/</loc>
-         <lastmod>2023-11-09</lastmod>
+         <lastmod>2023-11-14</lastmod>
          <changefreq>daily</changefreq>
     </url>
 </urlset>

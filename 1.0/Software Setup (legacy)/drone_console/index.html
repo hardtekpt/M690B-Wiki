@@ -10,13 +10,9 @@
         <meta name="author" content="Francisco Santos">
       
       
-        <link rel="canonical" href="https://hardtekpt.github.io/M690B-Wiki/1.0/Hardware%20Setup/onboard_computer_v1/">
+        <link rel="canonical" href="https://hardtekpt.github.io/M690B-Wiki/1.0/Software%20Setup%20%28legacy%29/drone_console/">
       
       
-        <link rel="prev" href="../">
-      
-      
-        <link rel="next" href="../flight_computer/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -24,7 +20,7 @@
     
     
       
-        <title>Onboard Computer - M690B Wiki</title>
+        <title>Drone Console - M690B Wiki</title>
       
     
     
@@ -81,7 +77,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#onboard-computer" class="md-skip">
+        <a href="#drone-console" class="md-skip">
           Skip to content
         </a>
       
@@ -119,7 +115,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Onboard Computer
+              Drone Console
             
           </span>
         </div>
@@ -245,12 +241,10 @@
         
   
   
-    
-  
   
     
     
-      <li class="md-tabs__item md-tabs__item--active">
+      <li class="md-tabs__item">
         <a href="../../Vehicle%20Setup/" class="md-tabs__link">
           
   
@@ -390,8 +384,6 @@
       
   
   
-    
-  
   
     
     
@@ -411,12 +403,12 @@
       
       
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
         
           
           
@@ -438,7 +430,7 @@
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
             Vehicle Setup
@@ -451,8 +443,6 @@
                 
   
   
-    
-  
   
     
     
@@ -474,17 +464,17 @@
       
       
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
         
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../" class="md-nav__link ">
+            <a href="../../Hardware%20Setup/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -501,7 +491,7 @@
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2_2">
             <span class="md-nav__icon md-icon"></span>
             Hardware Setup
@@ -514,18 +504,9 @@
                 
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../Hardware%20Setup/onboard_computer/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -534,7 +515,6 @@
   
 
       </a>
-      
     </li>
   
 
@@ -546,7 +526,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../flight_computer/" class="md-nav__link">
+      <a href="../../Hardware%20Setup/flight_computer/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -566,7 +546,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../radio_and_receiver/" class="md-nav__link">
+      <a href="../../Hardware%20Setup/radio_and_receiver/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -665,7 +645,7 @@
         
   
   <span class="md-ellipsis">
-    OS and ROS installation
+    OS installation and Setup
   </span>
   
 
@@ -681,11 +661,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Software%20Setup/vrpn_and_mavros/" class="md-nav__link">
+      <a href="../../Software%20Setup/ros_installation/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    VRPN and MAVROS setup
+    ROS and MAVROS installation
   </span>
   
 
@@ -1084,9 +1064,25 @@
   
 
 
-<h1 id="onboard-computer">Onboard Computer</h1>
-<p>The onboard computer for this vehicle consists of an <a href="https://www.nvidia.com/en-us/autonomous-machines/embedded-systems/jetson-xavier-nx/"><strong>NVIDIA Jetson Xavier NX</strong></a> board which is installed in the <a href="https://connecttech.com/product/photon-ai-camera-platform-jetson-xavier-nx/"><strong>Connect Tech Photon</strong></a> carrier board. The specific version of board is the <strong>REV G</strong>, <strong>SN5320</strong>, <strong>NGX002</strong>. Additionally, a 1 TB NVMe SSD was installed in the M.2 2280 M-KEY slot in the carrier board. To ensure the use of the SSD is enabled, the onboard DIP switch <em>SW1-2</em> should be on the ON position. More information regarding the operation of the carrier board and connector location can be found in the <a href="https://connecttech.com/ftp/pdf/CTIM_NGX002_Manual.pdf">carrier board manual</a>.</p>
-<p><img alt="Onboard Computer" src="../../assets/onboard_computer.png" title="Onboard Computer" /></p>
+<h1 id="drone-console">Drone Console</h1>
+<p>This section describes the console created to facilitate the process of monitoring the vehicle and running offboard algorithms during real trials. It contains several features like battery monitoring and access to the PX4 via mavros.</p>
+<h2 id="installation">Installation</h2>
+<p>The files required for the drone console include the <strong>mav_tools</strong> ROS package as well as a couple of scripts which can be found <a href="https://github.com/hardtekpt/M690B-Wiki/tree/master/drone_console">here</a>. The scripts folder should be placed in the home folder and the <strong>mav_tools</strong> package should be placed in the catkin workspace.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>To run the <code>drone_console.bash</code> when the drone boots, add this to your crontab (<code>crontab -e</code>): <code>@reboot /home/jetson/scripts/drone_console.bash</code></p>
+</div>
+<h2 id="usage">Usage</h2>
+<p>To open the <strong>drone console</strong> start by login in into the drone. To make it easier, add this to your <code>bashrc</code>:</p>
+<p>'''bash
+alias drone_console='tmux a -t drone_console'
+'''</p>
+<p>In this way, the console can be accessed using the <code>drone_console</code> command.</p>
+<h2 id="demo">Demo</h2>
+<p>In the main window, there are four panels. In the top left is the <strong>mav_tools</strong> ros package, which allows easy monitoring and basic control of the vehicle. In the bottom left, mavros is running, so that a connection to the PX4 is always available via ROS. In the top right, a terminal is available for running the offboard algorithms. Finally, in the bottom right a terminal has the <code>drone_bringup.launch</code> file open so that the mission to be ran can be configured.</p>
+<p><img alt="Drone console ui" src="../../assets/drone_console1.png" title="Drone console ui" /></p>
+<p>In the second window a panel shows the recorded rosbag files and a second panel provides an auxiliary terminal.</p>
+<p><img alt="Drone console ui" src="../../assets/drone_console2.png" title="Drone console ui" /></p>
 
 
 
@@ -1111,46 +1107,6 @@
       
         <footer class="md-footer">
   
-    
-      
-        
-      
-      <nav class="md-footer__inner md-grid" aria-label="Footer" hidden>
-        
-          
-          <a href="../" class="md-footer__link md-footer__link--prev" aria-label="Previous: Hardware Setup">
-            <div class="md-footer__button md-icon">
-              
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
-            </div>
-            <div class="md-footer__title">
-              <span class="md-footer__direction">
-                Previous
-              </span>
-              <div class="md-ellipsis">
-                Hardware Setup
-              </div>
-            </div>
-          </a>
-        
-        
-          
-          <a href="../flight_computer/" class="md-footer__link md-footer__link--next" aria-label="Next: Flight Computer">
-            <div class="md-footer__title">
-              <span class="md-footer__direction">
-                Next
-              </span>
-              <div class="md-ellipsis">
-                Flight Computer
-              </div>
-            </div>
-            <div class="md-footer__button md-icon">
-              
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
-            </div>
-          </a>
-        
-      </nav>
     
   
   <div class="md-footer-meta md-typeset">
