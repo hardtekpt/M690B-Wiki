@@ -10,7 +10,7 @@
         <meta name="author" content="Francisco Santos">
       
       
-        <link rel="canonical" href="https://hardtekpt.github.io/M690B-Wiki/1.1/Software%20Setup%20%28legacy%29/usefull_packages/">
+        <link rel="canonical" href="https://hardtekpt.github.io/M690B-Wiki/1.1/Software%20Setup%20%28Legacy%29/px4_configuration_checklist/">
       
       
       
@@ -20,7 +20,7 @@
     
     
       
-        <title>Usefull Packages - M690B Wiki</title>
+        <title>PX4 Configuration Checklist - M690B Wiki</title>
       
     
     
@@ -77,7 +77,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#usefull-packages" class="md-skip">
+        <a href="#px4-configuration-checklist" class="md-skip">
           Skip to content
         </a>
       
@@ -115,7 +115,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Usefull Packages
+              PX4 Configuration Checklist
             
           </span>
         </div>
@@ -659,7 +659,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Software Setup/ros_installation.md" class="md-nav__link">
+      <a href="../../Software%20Setup/ros_installation/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1042,13 +1042,20 @@
   
 
 
-<h1 id="usefull-packages">Usefull Packages</h1>
-<p>In order to facilitate testing and operation of the drone, two ROS packages are provided.</p>
-<h2 id="mav_tools">mav_tools</h2>
-<p>The <a href="https://github.com/hardtekpt/M690B-Wiki/tree/master/mavros_simple_interface/mav_tools">mav_tools</a> ROS package runs on top of MAVROS to provide a GUI interface that can run on the terminal and is able to display information like the battery state and basic control of the drone, like changing flight mode and arming/disarming the vehicle.</p>
-<p><img alt="mav_tools Example" src="../../assets/mav_tools_example.png" title="mav_tools Example" /></p>
-<h2 id="test_comms_pixhawk">test_comms_pixhawk</h2>
-<p>The <a href="https://github.com/hardtekpt/M690B-Wiki/tree/master/drone_control_stack/src/test_comms_pixhawk">test_comms_pixhawk</a> package provides an easy way to test the communication from the ROS control stack to the pixhawk flight computer by logging telemetry data and arming and disarming the drone.</p>
+<h1 id="px4-configuration-checklist">PX4 Configuration Checklist</h1>
+<p>After assembling the vehicle, the <a href="https://docs.px4.io/main/en/"><strong>PX4</strong> </a> autopilot running on the flight computer must be configured. Here is a general checklist of what needs to be done before the first flight. All of these configurations can be done using the <a href="http://qgroundcontrol.com/"><strong>QGroundControl</strong></a> application. It should be noted that this checklist is based on the PX4 documentation and more detailed instructions are available <a href="https://docs.px4.io/main/en/config/">there</a>.</p>
+<ol>
+<li>Sensor orientation on vehicle;</li>
+<li>Compass calibration;</li>
+<li>Gyroscope calibration;</li>
+<li>Accelerometer calibration;</li>
+<li>Radio setup (button mapping and calibration);</li>
+<li>Flight mode configuration (map radio button for manual/offboard mode change and safety hold/kill switch button);</li>
+<li>Battery (configure battery parameters for charge estimation);</li>
+<li>Configure failsafes;</li>
+<li>Actuators (configure geometry of motors and verify correct direction of spinning);</li>
+</ol>
+<p>After this process the vehicle should be ready for manual flight and it is now a good idea to check if the PID controllers' gains need to be adjusted.</p>
 
 
 

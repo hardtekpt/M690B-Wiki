@@ -10,7 +10,7 @@
         <meta name="author" content="Francisco Santos">
       
       
-        <link rel="canonical" href="https://hardtekpt.github.io/M690B-Wiki/1.1/Software%20Setup%20%28legacy%29/px4_configuration_checklist/">
+        <link rel="canonical" href="https://hardtekpt.github.io/M690B-Wiki/1.1/Software%20Setup%20%28Legacy%29/vrpn_and_mavros/">
       
       
       
@@ -20,7 +20,7 @@
     
     
       
-        <title>PX4 Configuration Checklist - M690B Wiki</title>
+        <title>VRPN and MAVROS Setup - M690B Wiki</title>
       
     
     
@@ -77,7 +77,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#px4-configuration-checklist" class="md-skip">
+        <a href="#vrpn-and-mavros-setup" class="md-skip">
           Skip to content
         </a>
       
@@ -115,7 +115,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              PX4 Configuration Checklist
+              VRPN and MAVROS Setup
             
           </span>
         </div>
@@ -659,7 +659,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Software Setup/ros_installation.md" class="md-nav__link">
+      <a href="../../Software%20Setup/ros_installation/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1042,20 +1042,46 @@
   
 
 
-<h1 id="px4-configuration-checklist">PX4 Configuration Checklist</h1>
-<p>After assembling the vehicle, the <a href="https://docs.px4.io/main/en/"><strong>PX4</strong> </a> autopilot running on the flight computer must be configured. Here is a general checklist of what needs to be done before the first flight. All of these configurations can be done using the <a href="http://qgroundcontrol.com/"><strong>QGroundControl</strong></a> application. It should be noted that this checklist is based on the PX4 documentation and more detailed instructions are available <a href="https://docs.px4.io/main/en/config/">there</a>.</p>
+<h1 id="vrpn-and-mavros-setup">VRPN and MAVROS Setup</h1>
+<h2 id="vrpn">VRPN</h2>
+<p>In order to access data from the <strong>Optitrack</strong> MOCAP system the <a href="http://wiki.ros.org/vrpn_client_ros">vrpn_client_ros</a> package was used.</p>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>ros-noetic-vrpn-client-ros
+</code></pre></div>
+<p>This package listens on the IP of the computer running the MOCAP sosftware and introduces pose information of the captured rigid bodies into ros topics. To do this a launch file is provided:</p>
+<div class="highlight"><pre><span></span><code>roslaunch<span class="w"> </span>vrpn_client_ros<span class="w"> </span>sample.launch
+</code></pre></div>
+<p>In this launch file, the available parameters were configured as such (The IP used corresponds to the MOCAP system of the 8th floor at ISR-Alameda):</p>
+<div class="highlight"><pre><span></span><code><span class="nt">server</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">192.168.0.2</span>
+<span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">3883</span>
+<span class="nt">update_frequency</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">30.0</span>
+<span class="nt">frame_id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">world</span>
+<span class="nt">use_server_time</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
+<span class="nt">broadcast_tf</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="nt">refresh_tracker_frequency</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.2</span>
+</code></pre></div>
+<h2 id="mavros">MAVROS</h2>
+<p>To communicate with the flight computer (running the <strong>PX4</strong> autopilot) using the <strong>MAVLink</strong> protocol through ROS, the <a href="http://wiki.ros.org/mavros"><strong>MAVROS</strong></a> package was used. It is assumed that the flight computer is connected to the onboard computer through USB.</p>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>ros-noetic-mavros
+sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>ros-noetic-mavros-extras
+<span class="nb">cd</span><span class="w"> </span>/opt/ros/noetic/lib/mavros
+sudo<span class="w"> </span>./install_geographiclib_datasets.sh<span class="w"> </span>
+</code></pre></div>
+<p>Additionally, to allow access to the USB ports for serial communication with the flight computer, these commands are needed:</p>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>gpasswd<span class="w"> </span>-a<span class="w"> </span><span class="nv">$USER</span><span class="w"> </span>dialout
+sudo<span class="w"> </span>reboot<span class="w"> </span>now
+</code></pre></div>
+<p>The package can now be tested by running <code>roslaunch mavros px4.launch</code> and verifying that data is being published in the available ROS topics (<code>rostopic list</code> and <code>rostopic echo ...</code>).</p>
+<p>The <strong>MAVROS</strong> package also allows to redirect the <strong>MAVLink</strong> communications to another computer, where <a href="http://qgroundcontrol.com/">QGroundControl</a> can be used for example. To do this, an option can be included when calling the launch file - <code>roslaunch mavros px4.launch fcu_url:=/dev/ttyACM0:57600 gcs_url:=udp://@${GCS_IP}:${GCS_PORT}</code>, where <em>fcu_url</em> is where the flight computer is connected, <em>GCS_IP</em> is the IP of the computer that wants to access the <strong>MAVLink</strong> communications and <em>GCS_Port</em> is an arbitrary port.</p>
+<h3 id="mavros-example">MAVROS Example</h3>
 <ol>
-<li>Sensor orientation on vehicle;</li>
-<li>Compass calibration;</li>
-<li>Gyroscope calibration;</li>
-<li>Accelerometer calibration;</li>
-<li>Radio setup (button mapping and calibration);</li>
-<li>Flight mode configuration (map radio button for manual/offboard mode change and safety hold/kill switch button);</li>
-<li>Battery (configure battery parameters for charge estimation);</li>
-<li>Configure failsafes;</li>
-<li>Actuators (configure geometry of motors and verify correct direction of spinning);</li>
+<li>Onboard computer IP: 192.168.1.126; </li>
+<li>Flight computer connected to onboard computer through USB (/dev/ttyACM0);</li>
+<li>Other computer IP: 192.168.1.118;</li>
+<li>Run <code>roslaunch mavros px4.launch fcu_url:=/dev/ttyACM0:57600 gcs_url:=udp://@192.168.1.118:15001</code> on the onboard computer;</li>
+<li>Run <code>roslaunch mavros px4.launch fcu_url:=udp://:15001@ gcs_url:=udp://@localhost:15002</code> on the other computer;</li>
+<li><code>rostopic list</code> and <code>rostopic echo ...</code> on the other computer will show the data from the flight computer;</li>
+<li>QGroundControl can be used on the other computer on port 15002.</li>
 </ol>
-<p>After this process the vehicle should be ready for manual flight and it is now a good idea to check if the PID controllers' gains need to be adjusted.</p>
 
 
 
