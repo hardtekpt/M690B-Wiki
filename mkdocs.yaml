@@ -124,4 +124,5 @@ nav:
     - 13-10-2023: 'Mission Logs/13-10-2023.md'
   - Roadmap: 'roadmap.md'
   - Reference: 
-    - Generating the Documentation: 'generating_docs.md'
+    - Equipment Details: 'Reference/equipment_details.md'
+    - Generating the Documentation: 'Reference/generating_docs.md'
