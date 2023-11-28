@@ -27,6 +27,4 @@ jobs:
         run: python3 -m pip install -r requirements.txt
         
       - name: Deploy with mike 🚀
-        run: |
-          cd mkdocs
-          mike deploy --push 1.1
+        run: mike deploy --push 1.1
