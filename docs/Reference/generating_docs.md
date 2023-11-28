@@ -37,6 +37,6 @@ To change a version alias use:
     mike alias <version> <alias>
 ```
 
-# Github Actions
+## Github Actions
 
-In order to aumotate the deployment of the documentation a Gihtub Action has been used.
+In order to aumotate the deployment of the documentation a Gihtub Action has been used. Every time changes are pushed to main branch and action is triggered to build and deploy the documentation. To control which version of the documentation will be built, a VERSION file on the root of the repository contains the current version.
