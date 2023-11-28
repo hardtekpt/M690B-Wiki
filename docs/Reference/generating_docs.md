@@ -38,3 +38,5 @@ To change a version alias use:
 ```
 
 # Github Actions
+
+In order to aumotate the deployment of the documentation a Gihtub Action has been used.
