@@ -1186,6 +1186,13 @@
 
 <h1 id="mission-logs">Mission Logs</h1>
 <p>This section contains reports and logs from the missions executed with the M690B drone. These include <em>ulog</em> files from the flight computer, <em>rosbag</em> files from the onboard computer and video footage from the missions. Some useful tools for analysing the logs are: <a href="https://review.px4.io/">PX4 Flight Review</a> and <a href="https://plotjuggler.io/">Plotjuggler</a>.</p>
+<h2 id="quickly-generating-mission-log-markdown-files">Quickly generating mission log markdown files</h2>
+<p>To assist with the generation of mission log files, a python script is provided. The script uses a markdown template and replaces the variables with input from the user. In addition to generating the log file, the script also outputs to the terminal the entry that needs to added to the navigation section in the <em>mkdocs.yaml</em> file.</p>
+<p>The script can be found inside the <em>mission_log_generator</em> folder and should be run with python3:</p>
+<div class="highlight"><pre><span></span><code><span class="w">    </span>chmod<span class="w"> </span>+x<span class="w"> </span>generate_markdown.py
+<span class="w">    </span>python3<span class="w"> </span>generate_markdown.py
+</code></pre></div>
+<p>After running the script, just copy the generated file to the <em>Mission Logs</em> folder and add the entry to the <em>mkdocs.yaml</em> file</p>
 
 
 
