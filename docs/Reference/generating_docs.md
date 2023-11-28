@@ -4,7 +4,7 @@ hide:
 ---
 # Generating Documentation
 
-This section is a reminder on how to update this documentation. On top of **MKdocs**, [**Mike**](https://github.com/jimporter/mike) is being used as a version system. 
+This section is a reminder on how to update this documentation. On top of **MKdocs**, [**Mike**](https://github.com/jimporter/mike) is being used as a version system. It is noted that the version `3.8` of **Python** was used.
 
 ## Prerequesites
 
@@ -36,3 +36,5 @@ To change a version alias use:
 ```bash
     mike alias <version> <alias>
 ```
+
+# Github Actions
