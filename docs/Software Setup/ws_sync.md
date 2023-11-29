@@ -22,3 +22,16 @@ A python script is available in the root of this repository to fetch all changes
 ```
 
 By changing this file with any repos that are to be included in either drone's workspace, the python script will automatically clone and update the packages whenever called. This process can be further automated if the script is called when an action is triggered. For example, on every boot, or whenever the drone has access to the Internet.
+
+To manually run script use:
+
+```bash
+    chmod +x sync_ws.py
+    python3 sync_ws.py
+```
+
+To automatically run the script on boot open crontab (`crontab -e`) and add the line:
+
+```bash
+    @reboot python3 <path to wiki repot>/sync_ws.py
+```
