@@ -1234,6 +1234,13 @@
 <span class="w">          </span><span class="nt">repo</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://github.com/hardtekpt/drone_control_stack</span>
 </code></pre></div>
 <p>By changing this file with any repos that are to be included in either drone's workspace, the python script will automatically clone and update the packages whenever called. This process can be further automated if the script is called when an action is triggered. For example, on every boot, or whenever the drone has access to the Internet.</p>
+<p>To manually run script use:</p>
+<div class="highlight"><pre><span></span><code><span class="w">    </span>chmod<span class="w"> </span>+x<span class="w"> </span>sync_ws.py
+<span class="w">    </span>python3<span class="w"> </span>sync_ws.py
+</code></pre></div>
+<p>To automatically run the script on boot open crontab (<code>crontab -e</code>) and add the line:</p>
+<div class="highlight"><pre><span></span><code><span class="w">    </span>@reboot<span class="w"> </span>python3<span class="w"> </span>&lt;path<span class="w"> </span>to<span class="w"> </span>wiki<span class="w"> </span>repot&gt;/sync_ws.py
+</code></pre></div>
 
 
 
