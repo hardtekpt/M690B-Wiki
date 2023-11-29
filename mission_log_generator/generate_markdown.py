@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 import os
 
 def delete_line(text, index):
@@ -52,6 +54,11 @@ template_content = template_content.replace("{{ checklist_id }}", checklist_id)
 
 # Get the output file path
 output_file_path = "./" + date + ".md"
+
+output_file_path_main = "../docs/Mission Logs/" + date + ".md"
+
+if input("Do you want to place the generated file directly in the Mission Logs folder (y/n): ") == 'y':
+    output_file_path = output_file_path_main
 
 # Write the output content to the output file
 with open(output_file_path, 'w') as output_file:

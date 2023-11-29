@@ -1,0 +1,13 @@
+
+- name: m690b_ist
+  base_path: /home/helios/uav/uav_ws/src/
+  packages:
+    - name: drone_control_stack
+      repo: https://github.com/hardtekpt/drone_control_stack
+    - name: mav_tools
+      repo: https://github.com/hardtekpt/mav_tools
+- name: m690b_nova
+  base_path: /home/icarus/uav/uav_ws/src/
+  packages:
+    - name: drone_control_stack
+      repo: https://github.com/hardtekpt/drone_control_stack

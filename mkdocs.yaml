@@ -111,6 +111,7 @@ nav:
       - Drone Control Stack Setup: 'Software Setup/drone_control_stack.md'
       - Usefull Packages: 'Software Setup/usefull_packages.md'
       - Drone Console: 'Software Setup/drone_console.md'
+      - Workspace Syncronization: 'Software Setup/ws_sync.md'
   - Known Issues: 'known_issues.md'
   - Mission Logs:
     - 'Mission Logs/index.md'
